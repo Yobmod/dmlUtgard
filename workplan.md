@@ -27,6 +27,9 @@
 
 * show Colin
 
+* investigate uni webhosting:
+           if no backend control --> JS auth
+
 4---------------------------------------
 
 * Add registration / login model
