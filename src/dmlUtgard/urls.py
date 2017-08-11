@@ -12,10 +12,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
-	url(r'^favicon.ico$', RedirectView.as_view(url=staticfiles_storage.url('favicon.ico'), permanent=False), name="favicon"),
+	url(r'^favicon.ico$', RedirectView.as_view(url=staticfiles_storage.url('icons/favicon.ico'), permanent=False), name="favicon"),
 
-    url(r'^main/', include("main.urls", namespace='main')),
-	#url(r'^api/main/', include("main.api.urls", namespace='main-api')),
+    url(r'^', include("main.urls", namespace='main')),
+	#url(r'^api/', include("main.api.urls", namespace='main-api')),
 
 ]
 

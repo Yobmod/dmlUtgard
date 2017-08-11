@@ -1,8 +1,12 @@
-<!-- DOCTYPE html -->
+<!DOCTYPE html>
 <html>
 {% load staticfiles %}
 
 <head>
+<!--meta http-equiv="X-UA-Compatible" content="IE=edge" /-->
+<meta charset="UTF-8" />
+
+
 <title>{% block head_title %}{% endblock head_title %}</title>
 <link rel="icon" href="{% static 'icons/favicon.ico' %}">
 <link rel='stylesheet' href='{% static "vendor/bootstrap/bootstrap.css" %}' />
@@ -28,8 +32,8 @@
 		<li class="breadcrumb-item"><a href='{% url "main:publications" %}'>Publications</a></li>
 		<li class="breadcrumb-item"><a href='{% url "main:contact" %}'>Contact</a></li>
     </ol>
-	<div>
-<div>
+</div>
+</div>
 
 <div class='container-fluid'>
 {% block content %}
