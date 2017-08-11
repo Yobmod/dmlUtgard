@@ -1,53 +1,39 @@
-{% load staticfiles %}
-<!--DOCTYPE html -->
+<!-- DOCTYPE html -->
 <html>
+{% load staticfiles %}
+
 <head>
-<title>{% block head_title %}Advancing the Blog{% endblock head_title %}</title>
+<title>{% block head_title %}{% endblock head_title %}</title>
+<link rel="icon" href="{% static 'icons/favicon.ico' %}">
+<link rel='stylesheet' href='{% static "vendor/bootstrap/bootstrap.css" %}' />
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' >
 <link rel='stylesheet' href='{% static "css/base.css" %}' />
-<style>{% block style %}{% endblock style %}</style>
-{% include 'base/css.html' %}
-{% include 'base/bootstrap_defaults.html' %}
-{% include 'base/js.html' %}
-<script>
-$(document).ready(function(){
-  {% block jquery %}{% endblock %}
-})
-</script>
+
+<script type="text/JavaScript" src='{% static "vendor/jquery/jquery-3.2.1.js" %}'></script>
+<script type="text/JavaScript" src='{% static "vendor/popper.js" %}'></script>
+<script type="text/JavaScript" src='{% static "vendor/bootstrap/bootstrap.js" %}'></script>
+
 {% block head_extra %} {% endblock head_extra %}
+<style>{% block style %}{% endblock style %}</style>
 </head>
 
 <body>
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-{% include "messages_display.html" %}
-<div class='container'>
+<div class='nav'>
+	<div>
     <ol class='breadcrumb'>
-		<li><a href='{% url "main" %}'>Home</a></li>
-        <li><a href='{% url "posts:list" %}'>Posts</a></li>
-		<li><a href='{% url "charts:home" %}'>Charts</a></li>
-		<li><a href='{% url "trials:deck_slidesOne" %}'>Deck</a></li>
-		<li><a href='{% url "trials:home" %}'>JS trials</a></li>
-        {% block post_detail_link %}
-        {% endblock %}
-
-        {% if not request.user.is_authenticated %}
-        <li class='pull-right'><a href='{% url "register" %}'>Register</a></li>
-        <li class='pull-right'><a href='{% url "login" %}'>Login</a></li>
-        {% else %}
-        <li class='pull-right'><a href='{% url "logout" %}'>Logout</a></li>
-        {% endif %}
+		<li class="breadcrumb-item"><a href='{% url "main:homepage" %}'>Home</a></li>
+        <li class="breadcrumb-item"><a href='{% url "main:facilities" %}'>Facilities</a></li>
+		<li class="breadcrumb-item"><a href='{% url "main:projects" %}'>Projects</a></li>
+		<li class="breadcrumb-item"><a href='{% url "main:publications" %}'>Publications</a></li>
+		<li class="breadcrumb-item"><a href='{% url "main:contact" %}'>Contact</a></li>
     </ol>
-{% block content %}{% endblock content %}
+	<div>
+<div>
+
+<div class='container-fluid'>
+{% block content %}
+{% endblock content %}
 </div>
 
 </body>

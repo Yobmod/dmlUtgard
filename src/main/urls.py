@@ -2,7 +2,7 @@ from django.conf.urls import url
 
 from . import views
 
-app_name = main
+app_name = 'main'
 urlpatterns = [
 	url(r'^$', views.homepage, name='homepage'),
 	url(r'^facilities/$', views.facilities, name='facilities'),

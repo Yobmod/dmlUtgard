@@ -5,20 +5,20 @@ from django.views.generic import View
 
 
 def homepage(request):
-	context = {}
-	return render(request, 'main/homepage.html', context)
+	#context = {}
+	return render(request, 'main/homepage.html')#, context)
 
 def facilities(request):
 	context = {}
-	return render(request, 'main/homepage.html', context)
+	return render(request, 'main/facilities.html', context)
 
 def projects(request):
 	context = {}
-	return render(request, 'main/homepage.html', context)
+	return render(request, 'main/projects.html', context)
 
 def publications(request):
 	context = {}
-	return render(request, 'main/homepage.html', context)
+	return render(request, 'main/publications.html', context)
 
 def contact(request):
 	# form = ContactForm(request.POST or None)

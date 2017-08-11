@@ -14,7 +14,7 @@ urlpatterns = [
 	url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
 	url(r'^favicon.ico$', RedirectView.as_view(url=staticfiles_storage.url('favicon.ico'), permanent=False), name="favicon"),
 
-    url(r'^main/', include("main.urls", app_name='main')),
+    url(r'^main/', include("main.urls", namespace='main')),
 	#url(r'^api/main/', include("main.api.urls", namespace='main-api')),
 
 ]
