@@ -5,8 +5,8 @@ from django.views.generic import View
 
 
 def homepage(request):
-	#context = {}
-	return render(request, 'main/homepage.html')#, context)
+	context = {}
+	return render(request, 'main/homepage.html', context)
 
 def facilities(request):
 	context = {}
@@ -19,6 +19,10 @@ def projects(request):
 def publications(request):
 	context = {}
 	return render(request, 'main/publications.html', context)
+
+def atoms(request):
+	context = {}
+	return render(request, 'animated_atoms.html', context)
 
 def contact(request):
 	# form = ContactForm(request.POST or None)

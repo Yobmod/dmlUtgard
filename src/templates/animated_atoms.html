@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head_extra %}
+<link rel='stylesheet' href='{% static "css/3d_atom.css" %}' />
+<link rel='stylesheet' href='{% static "css/3d_atom2.css" %}' />
+<link rel='stylesheet' href='{% static "css/3d_utgard.css" %}' />
+{% endblock head_extra %}
+{% block style %}{% endblock style %}
+
+
+{% block content %}
+
+<div class="row"><!--row1-->
+	<div class="col-lg-6"><!--row1 col1-->
+		<h2>Animated atom</h2>
+		<div class="Atom">
+  				<div class="Atom-nucleus"></div>
+  				<div class="Atom-orbit Atom-orbit--left Atom-orbit--visible"></div>
+  				<div class="Atom-orbit Atom-orbit--right Atom-orbit--visible"></div>
+  				<div class="Atom-orbit Atom-orbit--top Atom-orbit--visible"></div>
+  				<div class="Atom-orbit Atom-orbit--left Atom-orbit--foreground">
+    				<div class="Atom-electron"></div>
+  				</div>
+  				<div class="Atom-orbit Atom-orbit--right Atom-orbit--foreground">
+    				<div class="Atom-electron"></div>
+  				</div>
+  				<div class="Atom-orbit Atom-orbit--top Atom-orbit--foreground">
+    				<div class="Atom-electron"></div>
+  				</div>
+		</div>
+	</div>
+
+	<div class="col-lg-6"><!--row1 col1-->
+		<h2>Animated utgard logo</h2>
+		<div class="ULogo">
+				<div class="ULogo-nucleus"></div>
+				<div class="ULogo-orbit ULogo-orbit--left ULogo-orbit--visible"></div>
+				<div class="ULogo-orbit ULogo-orbit--right ULogo-orbit--visible"></div>
+				<div class="ULogo-orbit ULogo-orbit--top ULogo-orbit--visible"></div>
+				<div class="ULogo-orbit ULogo-orbit--left ULogo-orbit--foreground">
+					<div class="ULogo-electron"></div>
+				</div>
+				<div class="ULogo-orbit ULogo-orbit--right ULogo-orbit--foreground">
+					<div class="ULogo-electron"></div>
+				</div>
+				<div class="ULogo-orbit ULogo-orbit--top ULogo-orbit--foreground">
+					<div class="ULogo-electron"></div>
+				</div>
+		</div>
+	</div>
+
+</div><!--end row1-->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="row"><!--row2-->
+  <div class="col-lg-6"><!--row2 col1-->
+	  <div class="section">
+  			<div class="center"></div>
+
+  			<div class="ring1">
+    		<div></div>
+  			</div>
+  			<div class="ring2">
+    		<div></div>
+  			</div>
+  			<div class="ring3">
+    		<div></div>
+  			</div>
+	</div>
+  </div>
+
+  <div class="col-lg-6"><!--row2 col2-->
+  </div>
+</div><!--end row2-->
+<br />
+
+
+<script>
+$( function() {
+
+});
+</script>
+{% endblock content %}

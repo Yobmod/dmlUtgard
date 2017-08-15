@@ -9,6 +9,7 @@ urlpatterns = [
 	url(r'^projects/$', views.facilities, name='projects'),
 	url(r'^publications/$', views.publications, name='publications'),
 	url(r'^contact/$', views.contact, name='contact'),
+	url(r'^atoms/$', views.atoms, name='atoms'),
 	#url(r'^admin/$', views.django_admin_page, name='django_admin_page'), #link to admin
 
 	]

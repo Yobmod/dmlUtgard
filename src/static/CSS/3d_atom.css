@@ -1,0 +1,245 @@
+.Atom {			/*background circle*/
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background-color: #eaf4f9;
+  border: solid 3px #0adef3;
+  border-radius: 50%;
+  padding: 30px;
+}
+
+.Atom-nucleus, .Atom-nucleus:before {
+  position: absolute;
+  background: -webkit-linear-gradient(top, #0adef3 0%, #45beff 100%);
+  background: linear-gradient(-180deg, #0adef3 0%, #45beff 100%);
+}
+
+.Atom-nucleus {
+  display: block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 50%;
+  top: 155px;
+  left: 155px;
+}
+
+.Atom-nucleus:before {
+  display: block;
+  content: '';
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border-radius: 50%;
+  top: 10px;
+  left: 10px;
+  opacity: 0.15;
+}
+
+.Atom-orbit {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: solid 4px transparent;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.Atom-orbit--visible {
+  border-radius: 50%;
+  border-color: white;
+}
+
+.Atom-electron {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.Atom-electron:before {
+  display: block;
+  content: '';
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  margin-top: -12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 125px;
+  left: 125px;
+}
+.Atom-electron:after {
+  display: block;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 125px;
+  left: 125px;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.Atom-orbit--top.Atom-orbit--visible {
+  -webkit-transform: rotateZ(0deg) rotateY(73deg);
+          transform: rotateZ(0deg) rotateY(73deg);
+}
+
+.Atom-orbit--top.Atom-orbit--foreground {
+  -webkit-transform: translateZ(100px) rotateZ(0deg) rotateY(73deg);
+          transform: translateZ(100px) rotateZ(0deg) rotateY(73deg);
+}
+
+@-webkit-keyframes rotate-top {
+  0% {
+    -webkit-transform: rotate(0deg) translate(-125px) rotate(0deg);
+            transform: rotate(0deg) translate(-125px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translate(-125px) rotate(-360deg);
+            transform: rotate(360deg) translate(-125px) rotate(-360deg);
+  }
+}
+
+@keyframes rotate-top {
+  0% {
+    -webkit-transform: rotate(0deg) translate(-125px) rotate(0deg);
+            transform: rotate(0deg) translate(-125px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translate(-125px) rotate(-360deg);
+            transform: rotate(360deg) translate(-125px) rotate(-360deg);
+  }
+}
+.Atom-orbit--top .Atom-electron {
+  -webkit-animation: rotate-top infinite linear;
+          animation: rotate-top infinite linear;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+.Atom-orbit--top .Atom-electron:before, .Atom-orbit--top .Atom-electron:after {
+  -webkit-transform: rotateY(-73deg) rotateZ(0deg);
+          transform: rotateY(-73deg) rotateZ(0deg);
+}
+.Atom-orbit--top .Atom-electron:before {
+  background: -webkit-linear-gradient(top, #fad161 0%, #f99337 100%);
+  background: linear-gradient(-180deg, #fad161 0%, #f99337 100%);
+  opacity: 0.3;
+}
+.Atom-orbit--top .Atom-electron:after {
+  background: -webkit-linear-gradient(top, #fad161 0%, #f99337 100%);
+  background: linear-gradient(-180deg, #fad161 0%, #f99337 100%);
+}
+
+.Atom-orbit--left.Atom-orbit--visible {
+  -webkit-transform: rotateZ(-60deg) rotateY(73deg);
+          transform: rotateZ(-60deg) rotateY(73deg);
+}
+
+.Atom-orbit--left.Atom-orbit--foreground {
+  -webkit-transform: translateZ(100px) rotateZ(-60deg) rotateY(73deg);
+          transform: translateZ(100px) rotateZ(-60deg) rotateY(73deg);
+}
+
+@-webkit-keyframes rotate-left {
+  0% {
+    -webkit-transform: rotate(60deg) translate(-125px) rotate(-60deg);
+            transform: rotate(60deg) translate(-125px) rotate(-60deg);
+  }
+  100% {
+    -webkit-transform: rotate(420deg) translate(-125px) rotate(-420deg);
+            transform: rotate(420deg) translate(-125px) rotate(-420deg);
+  }
+}
+
+@keyframes rotate-left {
+  0% {
+    -webkit-transform: rotate(60deg) translate(-125px) rotate(-60deg);
+            transform: rotate(60deg) translate(-125px) rotate(-60deg);
+  }
+  100% {
+    -webkit-transform: rotate(420deg) translate(-125px) rotate(-420deg);
+            transform: rotate(420deg) translate(-125px) rotate(-420deg);
+  }
+}
+.Atom-orbit--left .Atom-electron {
+  -webkit-animation: rotate-left infinite linear;
+          animation: rotate-left infinite linear;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+.Atom-orbit--left .Atom-electron:before, .Atom-orbit--left .Atom-electron:after {
+  -webkit-transform: rotateY(-73deg) rotateZ(60deg);
+          transform: rotateY(-73deg) rotateZ(60deg);
+}
+.Atom-orbit--left .Atom-electron:before {
+  background: -webkit-linear-gradient(top, #51ecc2 0%, #12ccdb 100%);
+  background: linear-gradient(-180deg, #51ecc2 0%, #12ccdb 100%);
+  opacity: 0.3;
+}
+.Atom-orbit--left .Atom-electron:after {
+  background: -webkit-linear-gradient(top, #51ecc2 0%, #12ccdb 100%);
+  background: linear-gradient(-180deg, #51ecc2 0%, #12ccdb 100%);
+}
+
+.Atom-orbit--right.Atom-orbit--visible {
+  -webkit-transform: rotateZ(60deg) rotateY(73deg);
+          transform: rotateZ(60deg) rotateY(73deg);
+}
+
+.Atom-orbit--right.Atom-orbit--foreground {
+  -webkit-transform: translateZ(100px) rotateZ(60deg) rotateY(73deg);
+          transform: translateZ(100px) rotateZ(60deg) rotateY(73deg);
+}
+
+@-webkit-keyframes rotate-right {
+  0% {
+    -webkit-transform: rotate(120deg) translate(-125px) rotate(-120deg);
+            transform: rotate(120deg) translate(-125px) rotate(-120deg);
+  }
+  100% {
+    -webkit-transform: rotate(480deg) translate(-125px) rotate(-480deg);
+            transform: rotate(480deg) translate(-125px) rotate(-480deg);
+  }
+}
+
+@keyframes rotate-right {
+  0% {
+    -webkit-transform: rotate(120deg) translate(-125px) rotate(-120deg);
+            transform: rotate(120deg) translate(-125px) rotate(-120deg);
+  }
+  100% {
+    -webkit-transform: rotate(480deg) translate(-125px) rotate(-480deg);
+            transform: rotate(480deg) translate(-125px) rotate(-480deg);
+  }
+}
+.Atom-orbit--right .Atom-electron {
+  -webkit-animation: rotate-right infinite linear;
+          animation: rotate-right infinite linear;
+  -webkit-animation-duration: 2.3s;
+          animation-duration: 2.3s;
+}
+.Atom-orbit--right .Atom-electron:before, .Atom-orbit--right .Atom-electron:after {
+  -webkit-transform: rotateY(-73deg) rotateZ(-60deg);
+          transform: rotateY(-73deg) rotateZ(-60deg);
+}
+.Atom-orbit--right .Atom-electron:before {
+  background: -webkit-linear-gradient(top, #0adef3 0%, #45beff 100%);
+  background: linear-gradient(-180deg, #0adef3 0%, #45beff 100%);
+  opacity: 0.3;
+}
+.Atom-orbit--right .Atom-electron:after {
+  background: -webkit-linear-gradient(top, #0adef3 0%, #45beff 100%);
+  background: linear-gradient(-180deg, #0adef3 0%, #45beff 100%);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+
+}
