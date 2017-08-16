@@ -11,5 +11,6 @@ urlpatterns = [
 	url(r'^contact/$', views.contact, name='contact'),
 	url(r'^atoms/$', views.atoms, name='atoms'),
 	#url(r'^admin/$', views.django_admin_page, name='django_admin_page'), #link to admin
+	url(r'^flatten/$', views.flatten, name='flatten'),
 
 	]
