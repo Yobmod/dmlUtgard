@@ -1,3 +1,70 @@
+html {}
+body {}
+
+header {
+	height: 330px;
+	width: 100%;
+	background-color: darkgreen;
+}
+
+.ULogo-box {
+position: absolute;
+margin: 10px;
+
+}
+
+nav {
+}
+
+.nav {
+  }
+
+.nav-link {
+	color: white;
+	font: arial;
+	font-family: sans-serif;
+
+}
+
+.navbar {
+    display:inline-block;
+    float: right;
+    vertical-align: top;
+}
+
+
+
+section {}
+
+article {}
+
+h1, h2, h3, h4, h5, h6, p {
+	color: black;
+	font: arial;
+	font-family: sans-serif;
+}
+
 h1 {
-	color: blue,
+	color: white;
+	font-size : 100px;
+}
+
+h2 {
+	color: darkgreen;
+	font-size : 50px;
+}
+
+h3 {
+	color: darkgreen;
+	font-size : 30px;
+}
+
+h4 {
+	color: green;
+	font-size : 25px;
+}
+
+p {
+	color: green;
+	font-size : 20px;
 }

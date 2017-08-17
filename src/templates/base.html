@@ -3,19 +3,20 @@
 {% load staticfiles %}
 
 <head>
-<!--meta http-equiv="X-UA-Compatible" content="IE=edge" /-->
 <meta charset="UTF-8" />
-
 
 <title>{% block head_title %}{% endblock head_title %}</title>
 <link rel="icon" href="{% static 'icons/favicon.ico' %}">
-<link rel='stylesheet' href='{% static "vendor/bootstrap/bootstrap.css" %}' />
+<!--<link rel='stylesheet' href='{% static "vendor/bootstrap/bootstrap.css" %}' />-->
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' >
 <link rel='stylesheet' href='{% static "css/base.css" %}' />
 
 <script type="text/JavaScript" src='{% static "vendor/jquery/jquery-3.2.1.js" %}'></script>
-<script type="text/JavaScript" src='{% static "vendor/popper.js" %}'></script>
-<script type="text/JavaScript" src='{% static "vendor/bootstrap/bootstrap.js" %}'></script>
+<!--<script type="text/JavaScript" src='{% static "vendor/popper.js" %}'></script>
+<script type="text/JavaScript" src='{% static "vendor/bootstrap/bootstrap.js" %}'></script>-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 {% block head_extra %} {% endblock head_extra %}
 <style>{% block style %}{% endblock style %}</style>
@@ -23,22 +24,40 @@
 
 <body>
 
-<div class='nav'>
-	<div>
-    <ol class='breadcrumb'>
-		<li class="breadcrumb-item"><a href='{% url "main:homepage" %}'>Home</a></li>
-        <li class="breadcrumb-item"><a href='{% url "main:facilities" %}'>Facilities</a></li>
-		<li class="breadcrumb-item"><a href='{% url "main:projects" %}'>Projects</a></li>
-		<li class="breadcrumb-item"><a href='{% url "main:publications" %}'>Publications</a></li>
-		<li class="breadcrumb-item"><a href='{% url "main:contact" %}'>Contact</a></li>
-    </ol>
-</div>
-</div>
+<header>
+	<div class='container'>
+		{% include "ULogo.html" %}
+		<div style="height:275px">&nbsp;</div>
 
-<div class='container-fluid'>
+		<nav class="navbar" role="navigation">
+				<ul class="nav navbar-nav">
+				  	<li class=""><a class="nav-link" href='{% url "main:homepage" %}'>Home</a></li>
+		          	<li class=""><a class="nav-link" href='{% url "main:facilities" %}'>Facilities</a></li>
+		  			<li class=""><a class="nav-link" href='{% url "main:projects" %}'>Projects</a></li>
+		  			<li class=""><a class="nav-link" href='{% url "main:publications" %}'>Publications</a></li>
+		  			<li class=""><a class="nav-link" href='{% url "main:contact" %}'>Contact</a></li>
+	          	</ul>
+
+	          	<form class="navbar-form navbar-right" role="search">
+	              	<input type="text" class="form-control" placeholder="Search" />
+	              	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+	            </form>
+			</nav>
+
+	</div>
+
+</header>
+
+<div class='container'>
+<section>
 {% block content %}
 {% endblock content %}
-</div>
+</section>
+
+<footer>
+</footer>
+
+</div><!--bootstrap contrainer-->
 
 </body>
 </html>

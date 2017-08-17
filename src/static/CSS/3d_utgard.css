@@ -8,15 +8,22 @@
   padding: 20px;
 }
 
-.ULogo-nucleus, .ULogo-nucleus:before {  /*nucleus circle & glow*/
+.ULogo-nucleus {  /*nucleus circle & glow*/
   position: absolute;
-  background: -webkit-linear-gradient(top, #0adef3 0%, #45beff 100%);
-  background: linear-gradient(-180deg, #0adef3 0%, black 100%);   /*lit from above*/
+  background: -webkit-linear-gradient(top, darkgrey 0%, black 100%);
+  background: linear-gradient(-180deg, darkgrey 0%, black 100%);   /*lit from above*/
+}
+
+.ULogo-nucleus:before {  /*nucleus circle & glow*/
+  position: absolute;
+  background: -webkit-linear-gradient(top, darkgrey 0%, black 100%);
+  background: linear-gradient(-180deg, blue 0%, black 100%);   /*lit from above*/
 }
 
 .ULogo-nucleus {  /*nucleus circle*/
   display: block;
-  content: '';
+  content: 'U';
+  font-size: 50px;
   color: white;
   width: 90px;    /*if 10px smaller than glow, difference in margins shouls be 5px*/
   height: 90px;
@@ -27,7 +34,7 @@
   left: 103px;
 }
 
-.ULogo-nucleus:before { /*nucleus circle glow*/
+.ULogo-nucleus::before { /*nucleus circle glow*/
   display: block;
   content: '';
   width: 100px;
@@ -37,7 +44,23 @@
   border-radius: 50%;
   top: -5px;
   left: -5px;
-  opacity: 0.15;
+  opacity: 0.25;
+}
+
+.ULogo-nucleus::after { /*nucleus circle glow*/
+  display: block;
+  content: 'U';
+  color:white;
+  font-size: 80px;
+  width: 100px;
+  height: 100px;
+  margin-left: 18px;
+  margin-top: -16px;
+  border-radius: 50%;
+  top: 0px;
+  left: 0px;
+  opacity: 1;
+  position: absolute;
 }
 
 .ULogo-orbit { 			/*electron elipses*/
@@ -141,8 +164,8 @@
 }
 
 .ULogo-orbit--left.ULogo-orbit--foreground {
-  -webkit-transform: translateZ(100px) rotateZ(-60deg) rotateY(65deg);
-          transform: translateZ(100px) rotateZ(-60deg) rotateY(65deg);
+  -webkit-transform: translateZ(00px) rotateZ(-60deg) rotateY(65deg);
+          transform: translateZ(00px) rotateZ(-60deg) rotateY(65deg);
 }
 
 @-webkit-keyframes rotate-left {
@@ -192,8 +215,8 @@
 }
 
 .ULogo-orbit--right.ULogo-orbit--foreground {
-  -webkit-transform: translateZ(100px) rotateZ(60deg) rotateY(65deg);
-          transform: translateZ(100px) rotateZ(60deg) rotateY(65deg);
+  -webkit-transform: translateZ(00px) rotateZ(60deg) rotateY(65deg);
+          transform: translateZ(00px) rotateZ(60deg) rotateY(65deg);
 }
 
 @-webkit-keyframes rotate-right {
