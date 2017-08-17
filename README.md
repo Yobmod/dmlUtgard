@@ -12,8 +12,10 @@ Backend:
 
 Frontend:
 	jQuery
-		Bootstrap 4
-			popper.js
+		Bootstrap 3
+
+		//Bootstrap 4
+			//popper.js
 
 
 	//react.js

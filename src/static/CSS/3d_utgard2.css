@@ -67,15 +67,13 @@
   position: absolute;
   width: 255px;    		/*change if change electron size*/
   height: 255px;
-  border: solid 8px transparent;
+  border: solid 8px;
+  border-radius: 50%;     /*rectangle -> elipses border*/
+  border-color: black;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
 
-.ULogo-orbit--visible {   /*electron elipses*/
-  border-radius: 50%;     /*rectangle -> elipses border*/
-  border-color: black;
-}
 
 .ULogo-electron {
   -webkit-transform-style: preserve-3d;
@@ -84,10 +82,10 @@
 .ULogo-electron:before {   /*electrons glows*/
   display: block;
   content: '';
-  width: 30px;			/*change if change electron size*/
-  height: 30px;
-  margin-left: -15px;
-  margin-top: -15px;
+  width: 31px;			/*change if change electron size*/
+  height: 31px;
+  margin-left: -12px;
+  margin-top: -12px;
   border-radius: 50%;
   position: absolute;
   top: 125px;
@@ -96,8 +94,8 @@
 .ULogo-electron:after {    /*electrons*/
   display: block;
   content: '';
-  width: 20px;			/*then change elipses and glow sizes*/
-  height: 20px;
+  width: 25px;			/*then change elipses and glow sizes*/
+  height: 25px;
   margin-left: -10px;
   margin-top: -10px;
   border-radius: 50%;
@@ -113,8 +111,8 @@
 }
 
 .ULogo-orbit--top.ULogo-orbit--foreground {
-  -webkit-transform: translateZ(100px) rotateZ(0deg) rotateY(65deg);
-          transform: translateZ(100px) rotateZ(0deg) rotateY(65deg);
+  -webkit-transform: translateZ(0px) rotateZ(0deg) rotateY(65deg);
+          transform: translateZ(0px) rotateZ(0deg) rotateY(65deg);
 }
 
 @-webkit-keyframes rotate-top {
@@ -149,13 +147,13 @@
           transform: rotateY(-65deg) rotateZ(0deg);
 }
 .ULogo-orbit--top .ULogo-electron:before {					/*electron 1 glow*/
-  background: -webkit-linear-gradient(top, #fad161 0%, #f99337 100%);
-  background: linear-gradient(-180deg, #fad161 0%, black 100%);
+  background: -webkit-linear-gradient(top, blak, black 100%);
+  background: linear-gradient(-180deg, black, black 100%);
   opacity: 0.3;
 }
 .ULogo-orbit--top .ULogo-electron:after {				/*electron 1 color*/
-  background: -webkit-linear-gradient(top, #fad161 0%, #f99337 100%);
-  background: linear-gradient(-180deg, grey 0%, black 100%);
+  background: -webkit-linear-gradient(top, black, black 100%);
+  background: linear-gradient(-180deg, black, black 100%);
 }
 
 .ULogo-orbit--left.ULogo-orbit--visible {
@@ -200,13 +198,13 @@
           transform: rotateY(-65deg) rotateZ(60deg);
 }
 .ULogo-orbit--left .ULogo-electron:before {			/*electron 2 glow*/
-  background: -webkit-linear-gradient(top, #51ecc2 0%, #12ccdb 100%);
-  background: linear-gradient(-180deg, #51ecc2 0%, black 100%);
+	background: -webkit-linear-gradient(top, black, black 100%);
+    background: linear-gradient(-180deg, black, black 100%);
   opacity: 0.3;
 }
 .ULogo-orbit--left .ULogo-electron:after {			/*electron 2 color*/
-  background: -webkit-linear-gradient(top, #51ecc2 0%, #12ccdb 100%);
-  background: linear-gradient(-180deg, #51ecc2 0%, black 100%);
+	background: -webkit-linear-gradient(top, black, black 100%);
+    background: linear-gradient(-180deg, black, black 100%);
 }
 
 .ULogo-orbit--right.ULogo-orbit--visible {
@@ -251,13 +249,13 @@
           transform: rotateY(-65deg) rotateZ(-60deg);
 }
 .ULogo-orbit--right .ULogo-electron:before {			/*electron 3 glow color*/
-  background: -webkit-linear-gradient(top, #0adef3 0%, #45beff 100%);
-  background: linear-gradient(-180deg, #0adef3 0%, black 100%);
+	background: -webkit-linear-gradient(top, black, black 100%);
+    background: linear-gradient(-180deg, black, black 100%);
   opacity: 0.3;
 }
 .ULogo-orbit--right .ULogo-electron:after {		/*electron 3 colors*/
-  background: -webkit-linear-gradient(top, #0adef3 0%, #45beff 100%);
-  background: linear-gradient(-180deg, #0adef3 0%, black 100%);
+	background: -webkit-linear-gradient(top, black, black 100%);
+    background: linear-gradient(-180deg, black, black 100%);
 }
 
 html, body {
