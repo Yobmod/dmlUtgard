@@ -1,67 +1,54 @@
-.ulogo1 {			/*background circle*/
+.ulogo1 {
+  /*background circle*/
   width: 306px;
   height: 306px;
   position: relative;
   background-color: lightgreen;
   border: solid 6px green;
-  border-radius: 50%;   /*50% --> circle*/
+  border-radius: 50%;
+  /*50% --> circle*/
   padding: 20px;
 }
 
-.ulogo1-nucleus {  /*nucleus circle & glow*/
-  position: absolute;
-  background: -webkit-linear-gradient(top, darkgrey 0%, black 100%);
-  background: linear-gradient(-180deg, darkgrey 0%, black 100%);   /*lit from above*/
+.ulogo1-text {
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-family:
+	}
+
+	.ulogo1-text:hover {
+		color: blue;
+		}
+
+.ulogo1-textbox {
+	display: block;
+	border-style: solid;
+	text-align:center;
+border-width: 1px;
+border-color: none;
+    width: 90px;
+	box-shadow:0px 0px 30px 5px blue;     /*horizonal, vertical, blur, spread,  color */
+    /*if 10px smaller than glow, difference in margins shouls be 5px*/
+    height: 90px;
+    margin-left: 0px;
+    margin-top: 0px;
+    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    z-index: 0;
+    position: absolute;
+    background: -webkit-linear-gradient(top, darkgrey 0%, black 100%);
+    background: linear-gradient(-180deg, darkgrey 0%, black 100%);
 }
 
-.ulogo1-nucleus:before {  /*nucleus circle & glow*/
-  position: absolute;
-  background: -webkit-linear-gradient(top, darkgrey 0%, black 100%);
-  background: linear-gradient(-180deg, blue 0%, black 100%);   /*lit from above*/
+.ulogo1-maintext {
+  margin: -15px 0px -5px 0px;
 }
 
-.ulogo1-nucleus {  /*nucleus circle*/
-  display: block;
-  content: 'U';
-  font-size: 50px;
-  color: white;
-  width: 90px;    /*if 10px smaller than glow, difference in margins shouls be 5px*/
-  height: 90px;
-  margin-left: 0px;
-  margin-top: 0px;
-  border-radius: 50%;
-  top: 103px;
-  left: 103px;
-}
 
-.ulogo1-nucleus::before { /*nucleus circle glow*/
-  display: block;
-  content: '';
-  width: 100px;
-  height: 100px;
-  margin-left: 0px;
-  margin-top: 0px;
-  border-radius: 50%;
-  top: -5px;
-  left: -5px;
-  opacity: 0.25;
-}
-
-.ulogo1-nucleus::after { /*nucleus circle glow*/
-  display: block;
-  content: 'U';
-  color:white;
-  font-size: 80px;
-  width: 100px;
-  height: 100px;
-  margin-left: 18px;
-  margin-top: -16px;
-  border-radius: 50%;
-  top: 0px;
-  left: 0px;
-  opacity: 1;
-  position: absolute;
-}
 
 .ulogo1-orbit { 			/*electron elipses*/
   position: absolute;
@@ -246,6 +233,7 @@
   -webkit-animation-duration: 7s;
           animation-duration: 7s;
 }
+
 .ulogo1-orbit--right .ulogo1-electron:before, .ulogo1-orbit--right .ulogo1-electron:after { /*electron 3 animation*/
   -webkit-transform: rotateY(-65deg) rotateZ(-60deg);
           transform: rotateY(-65deg) rotateZ(-60deg);
