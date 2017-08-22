@@ -24,6 +24,6 @@ if __name__ == '__main__':
     cherrypy.config.update({'server.socket_port': 8090, 'checker.on': False})
 
     from djangoplugin import DjangoAppPlugin
-    DjangoAppPlugin(cherrypy.engine, settings_module='dmlUtgard.settings').subscribe()
+    DjangoAppPlugin(cherrypy.engine, settings_module='dmlutgard.settings').subscribe()
 
     cherrypy.quickstart()
