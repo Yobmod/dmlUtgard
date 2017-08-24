@@ -16,6 +16,7 @@
 
 <script type="text/JavaScript" src='{% static "vendor/jquery/jquery-3.2.1.js" %}'></script>
 <script type="text/JavaScript" src='{% static "vendor/sidr/jquery.sidr.js" %}'></script>
+<script type="text/JavaScript" src='{% static "vendor/js-cookie.js" %}'></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!--<script type="text/JavaScript" src='{% static "vendor/popper.js" %}'></script>
 <script type="text/JavaScript" src='{% static "vendor/bootstrap/bootstrap.js" %}'></script>-->
@@ -51,23 +52,7 @@
 	</div>
 </header>
 
-<div id="sidr">
-<nav class="navbar" role="navigation">
-		<ul class="nav navbar-nav">
-			<li class=""><a class="nav-link" href='{% url "main:homepage" %}'>Home</a></li>
-			<li class=""><a class="nav-link" href='{% url "main:facilities" %}'>Facilities</a></li>
-			<li class=""><a class="nav-link" href='{% url "main:projects" %}'>Projects</a></li>
-			<li class=""><a class="nav-link" href='{% url "main:publications" %}'>Publications</a></li>
-			<li class=""><a class="nav-link" href='{% url "main:contact" %}'>Contact</a></li>
-		</ul>
 
-		<form class="navbar-form navbar-right" role="search">
-			<input type="text" class="form-control" placeholder="Search" />
-			<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
-		</form>
-		<a id="simple-menu2" href="#sidr" style='position:'>|||</a>
-</nav>
-</div>
 
 
 <div class='container'>
@@ -81,28 +66,58 @@
 
 </div><!--bootstrap contrainer-->
 
+<div id="sidr" style="">
+<nav class="navbar" role="navigation">
+		<ul class="nav navbar-nav">
+			<li class="sidr-menu-item"><a class="nav-link" href='{% url "main:homepage" %}'>Home</a></li>
+			<li class="sidr-menu-item"><a class="nav-link" href='{% url "main:facilities" %}'>Facilities</a></li>
+			<li class="sidr-menu-item"><a class="nav-link" href='{% url "main:projects" %}'>Projects</a></li>
+			<li class="sidr-menu-item"><a class="nav-link" href='{% url "main:publications" %}'>Publications</a></li>
+			<li class="sidr-menu-item"><a class="nav-link" href='{% url "main:contact" %}'>Contact</a></li>
+		</ul>
+
+		<form class="navbar-form navbar-right" role="search">
+			<input type="text" class="form-control" placeholder="Search" />
+			<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+		</form>
+		<a id="simple-menu2" href="#sidr" style='position:'>|||</a>
+</nav>
+</div><!--sidr div-->
+
 <script>
 $(document).ready(function() {
-  $('#simple-menu').sidr({
-	  body:'#simple-menu',		//assign which elements should be displaced
-	  displace: false,
-
-   });
-   $('#simple-menu2').sidr({   //second button (in menu)
-	   displace: false,
-	   onClose: function() {
-		   console.log("closed sidr menu");
+  	$('#simple-menu').sidr({
+		name: 'sidr',
+		side: 'left', // By default
+	  	body:'#simple-menu',		//assign which elements should be displaced
+	  	displace: false,
+   	});
+   	$('#simple-menu2').sidr({
+		name: 'sidr', //second button (in menu)
+		displace: false,
+		timing: 'ease-in-out',
+		speed: 300,
+		onClose: function() {
+		console.log("closed sidr menu");
+		Cookies.set('sidr_panel', 'closed', { expires: 7 });
+		var cookieValue = Cookies.get('sidr_panel')
+		console.log(cookieValue)
 		   //var colr = $('#simple-menu').css("color" );
 		   //console.log(colr);
-	   },
-	   onOpen: function() {
-		   console.log("opened sidr menu");
+	   	},
+		onOpen: function() {
+		   	console.log("opened sidr menu");
+			Cookies.set('sidr_panel', 'open', { expires: 7 });
+			var cookieValue = Cookies.get('sidr_panel')
+			console.log(cookieValue)
 		   //$('#simple-menu').css("position", "absolute" );
 		   //var posn = $('#simple-menu').css("position" );
 		   //console.log(posn);
-	   }
-   });
+	   	}
+	});
 });
+
+
 </script>
 </body>
 </html>
