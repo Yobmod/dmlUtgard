@@ -52,11 +52,10 @@
 </div>
 
 		<div style="height:275px">&nbsp;</div>
-
+		<a class="nav-link" id="simple-menu" href="#sidr" style='position:'>|||</a>
 		<nav class="navbar" role="navigation">
 				<ul class="nav navbar-nav">
-					<li class=""><a class="nav-link" id="simple-menu" href="#sidr" style='position:'>|||</a></li>
-				  	<li class=""><a class="nav-link" href='/'>Home</a></li>
+					<li class=""><a class="nav-link" href='/'>Home</a></li>
 		          	<li class=""><a class="nav-link" href='/facilities/'>Facilities</a></li>
 		  			<li class=""><a class="nav-link" href='/projects/'>Projects</a></li>
 		  			<li class=""><a class="nav-link" href='/publications/'>Publications</a></li>
@@ -86,6 +85,7 @@
 			<input type="text" class="form-control" placeholder="Search" />
 			<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
 		</form>
+		<a id="simple-menu2" href="#sidr" style='position:'>|||</a>
 </nav>
 </div>
 
@@ -223,17 +223,22 @@ $( function() {
 $(document).ready(function() {
   $('#simple-menu').sidr({
 	  body:'#simple-menu',		//assign which elements should be displaced
-  	  displace: true,
-	  onClose: function() {
-		  console.log("closed sidr menu");
-		  var colr = $('#simple-menu').css( "position" );
-		  console.log(colr);
-	  },
-	  onOpen: function() {
-		  console.log("opened sidr menu");
-		  var colr = $('#simple-menu').css( "position" );
-		  console.log(colr);
-	  }
+	  displace: false,
+
+   });
+   $('#simple-menu2').sidr({   //second button (in menu)
+	   displace: false,
+	   onClose: function() {
+		   console.log("closed sidr menu");
+		   //var colr = $('#simple-menu').css("color" );
+		   //console.log(colr);
+	   },
+	   onOpen: function() {
+		   console.log("opened sidr menu");
+		   //$('#simple-menu').css("position", "absolute" );
+		   //var posn = $('#simple-menu').css("position" );
+		   //console.log(posn);
+	   }
    });
 });
 </script>
