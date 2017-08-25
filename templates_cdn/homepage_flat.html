@@ -16,7 +16,7 @@
 
 <script type="text/JavaScript" src='/static/vendor/jquery/jquery-3.2.1.js'></script>
 <script type="text/JavaScript" src='/static/vendor/sidr/jquery.sidr.js'></script>
-<!--<script type="text/JavaScript" src='/static/vendor/jquery/jquery.cookie.js'></script>-->
+<script type="text/JavaScript" src='/static/vendor/js-cookie.js'></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!--<script type="text/JavaScript" src='/static/vendor/popper.js'></script>
 <script type="text/JavaScript" src='/static/vendor/bootstrap/bootstrap.js'></script>-->
@@ -53,6 +53,7 @@
 </div>
 
 		<div style="height:275px">&nbsp;</div>
+
 		<a class="nav-link" id="simple-menu" href="#sidr" style='position:'>|||</a>
 		<nav class="navbar" role="navigation">
 				<ul class="nav navbar-nav">
@@ -204,9 +205,9 @@ $( function() {
 
 </div><!--bootstrap contrainer-->
 
-<div id="sidr" style="">
-<nav class="navbar" role="navigation">
-		<ul class="nav navbar-nav">
+<div id="sidr" class="sidr-menu" style="">
+<nav class="" role="navigation">
+		<ul class="">
 			<li class="sidr-menu-item"><a class="nav-link" href='/'>Home</a></li>
 			<li class="sidr-menu-item"><a class="nav-link" href='/facilities/'>Facilities</a></li>
 			<li class="sidr-menu-item"><a class="nav-link" href='/projects/'>Projects</a></li>
@@ -214,53 +215,65 @@ $( function() {
 			<li class="sidr-menu-item"><a class="nav-link" href='/contact/'>Contact</a></li>
 		</ul>
 
-		<form class="navbar-form navbar-right" role="search">
+		<form class="" role="search">
 			<input type="text" class="form-control" placeholder="Search" />
+			<br />
 			<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
 		</form>
+		<br />
 		<a id="simple-menu2" href="#sidr" style='position:'>|||</a>
 </nav>
 </div><!--sidr div-->
 
 <script>
 
+
 $(document).ready(function() {
-  	$('#simple-menu').sidr({
+
+	// var cookieValue = Cookies.get('sidr_panel')
+	//  	$.fn.usecookie = function() {
+	// 	 	if (cookieValue === "open") {
+		//		$( document.body ).hide();
+		//		$.sidr( 'open', 'sidr', function() {
+	//				$( document.body ).show();
+	// 			})
+	// 						}
+	// 		else if (cookieValue === "closed") { }
+	// 		else { }
+	// 	}
+
+  	$('#simple-menu2').sidr({
 		name: 'sidr',
 		side: 'left', // By default
 	  	body:'#simple-menu',		//assign which elements should be displaced
 	  	displace: false,
-   	});
-   	$('#simple-menu2').sidr({
+   	})
+
+   	$('#simple-menu').sidr({
 		name: 'sidr', //second button (in menu)
 		displace: false,
 		timing: 'ease-in-out',
 		speed: 300,
 		onClose: function() {
-		   console.log("closed sidr menu");
+			//console.log("closed sidr menu");
+		//	Cookies.set('sidr_panel', 'closed', { expires: 7 });
+		//	var cookieValue = Cookies.get('sidr_panel')
+			//console.log(cookieValue)
 		   //var colr = $('#simple-menu').css("color" );
 		   //console.log(colr);
 	   	},
 		onOpen: function() {
-		   console.log("opened sidr menu");
+		  // 	console.log("opened sidr menu");
+			//Cookies.set('sidr_panel', 'open', { expires: 7 });
+		//	var cookieValue = Cookies.get('sidr_panel')
+		//	console.log(cookieValue)
 		   //$('#simple-menu').css("position", "absolute" );
 		   //var posn = $('#simple-menu').css("position" );
 		   //console.log(posn);
 	   	}
-	});
+	})
 });
 
-// $('.sidr-menu-item').click(function() {    //try to keep menu open after clicking child link
-//     //$('#simple-menu2').sidr();
-// 	alert("clicked menu-item");
-//
-// })
-
-// $(".sidr-menu").load(function() {
-// 	$('#simple-menu2').sidr({
-// 	name: 'sidr-menu'
-// });
-// })
 </script>
 </body>
 </html>
