@@ -19,6 +19,8 @@ python manage.py runserver_plus   // runs django app (plus extensions & wagtail)
 python manage.py colectstatic
 python manage.py makemigrations
 python manage.py migrate
+python manage.py test (or pytest)
+python manage.py createsuperuser
 
 mkvirtualenv <name>
 workon <name>
@@ -40,3 +42,7 @@ git remote add origin git@github.com:"yourusername"/"projectname".git   //after 
 
 
 heroku run python....    //use python comands (....) on heroku
+heroku config
+heroku config:set XXX_XXX=abcabc  // no "quote marks"
+heroku config:unset XXX_XXX
+heroku restart

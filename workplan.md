@@ -1,15 +1,20 @@
 1---------------------------------------
 * Create backend
-        - django or flask?
-        
+        - django or flask? *
+		 + rest framework, *
+		 storages, *
+		 libsass,
+		 pytest *
+
+
 * make template pages:
-        - base
-        - landing page
-        - contact
+        - base		*
+        - landing page	*
+        - contact with email form
         - projects
         - funding
         - registration / login
-          
+
 
 2----------------------------------------
 * add js
@@ -18,9 +23,9 @@
               paralax
               particles
         - chartJS
- 
+
 3----------------------------------------
-              
+
 * deploy heroku test
 
 * set up AWS3 static files
@@ -40,9 +45,5 @@
 
 -----------------------------------------
 
-* compare other hosting 
+* compare other hosting
 * get domain name
-
-        
-        
-        
