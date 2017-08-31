@@ -6,6 +6,14 @@ Backend:
 	Django extensions
 	Django rest framework
 
+	Django-dotenv
+	Pytest-django
+	Django-storages
+	Django compressor
+	django-libsass
+	whitenoise
+
+	Djano-dotenv
 	Werkzeug  
 	Wagtail
 
