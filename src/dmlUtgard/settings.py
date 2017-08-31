@@ -1,11 +1,8 @@
 import os
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'bzd-%ny!#y0u*(h#(+gann@b^5%ykb!pq8vc8q548=#7_sy-q='
 DEBUG = True
-ALLOWED_HOSTS = []
+
 
 INSTALLED_APPS = [
 	'django.contrib.admin',
@@ -13,17 +10,20 @@ INSTALLED_APPS = [
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
+	'whitenoise.runserver_nostatic',
 	'django.contrib.staticfiles',
 
 	'django_extensions',
 	'rest_framework',
 	'storages',
+	'compressor',
 
 	'main',
 ]
 
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
+	'whitenoise.middleware.WhiteNoiseMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
@@ -54,17 +54,15 @@ TEMPLATES = [
 	},
 ]
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
+CACHES = {
 	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		#'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+		'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+		#'django.core.cache.backends.memcached.MemcachedCache',
+		#'django.core.cache.backends.memcached.PyLibMCCache',
+		#'LOCATION': '/var/tmp/django_cache',
 	}
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -116,17 +114,58 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-# STATICFILES_FINDERS = (
-# 	'django.contrib.staticfiles.finders.FileSystemFinder',
-# 	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# 	)
+STATICFILES_FINDERS = (
+	 'django.contrib.staticfiles.finders.FileSystemFinder',
+	 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+	 'compressor.finders.CompressorFinder',
+	 )
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
-STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, "static"),
-	#'/var/www/static/',
+COMPRESS_PRECOMPILERS = (
+	('text/x-scss', 'django_libsass.SassCompiler'),
+)
+LIBSASS_OUTPUT_STYLE = 'nested' #'compressed'
+LIBSASS_PRECISION = 8  #for bootstrap?
+#background: url(static("myapp/image/bar.png"));
+
+COMPRESS_CSS_FILTERS = [
+	'compressor.filters.css_default.CssAbsoluteFilter',
+	'compressor.filters.cssmin.CSSMinFilter'
+]
+COMPRESS_JS_FILTERS = [
+	'compressor.filters.jsmin.JSMinFilter',
 ]
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+#------------------------------------------------------
+# if DEBUG == True:
+# 	ALLOWED_HOSTS = ['*']
+# 	SECRET_KEY = 'bzd-%ny!#y0u*(h#(+gann@b^5%'
+# 	DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.sqlite3',
+# 		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# 	}
+# }
+#
+# 	STATIC_URL = '/static/'
+# 	STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+# 	STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
+	#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+# 	MEDIA_URL = "/media/"
+# 	MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+
+if DEBUG == True:
+	try:
+		from .production_settings import *
+		print(" * using production environment settings")
+	except ImportError:
+		print(" * using local environment settings")
+		pass
+
+#WHITENOISE_AUTOREFRESH # =DEBUG
+WHITENOISE_ROOT = STATIC_ROOT
+
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+COMPRESS_URL = STATIC_URL
