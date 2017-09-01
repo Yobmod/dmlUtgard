@@ -1,0 +1,257 @@
+.ulogo1 {
+  /*background circle*/
+  width: 306px;
+  height: 306px;
+  position: relative;
+  background-color: lightgreen;
+  border: solid 6px green;
+  border-radius: 50%;
+  /*50% --> circle*/
+  padding: 20px;
+}
+
+.ulogo1-text {
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-family:
+	}
+
+	.ulogo1-text:hover {
+		color: blue;
+		}
+
+.ulogo1-textbox {
+	display: block;
+	border-style: solid;
+	text-align:center;
+border-width: 1px;
+border-color: none;
+    width: 90px;
+	box-shadow:0px 0px 30px 5px blue;     /*horizonal, vertical, blur, spread,  color */
+    /*if 10px smaller than glow, difference in margins shouls be 5px*/
+    height: 90px;
+    margin-left: 0px;
+    margin-top: 0px;
+    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    z-index: 0;
+    position: absolute;
+    background: -webkit-linear-gradient(top, darkgrey 0%, black 100%);
+    background: linear-gradient(-180deg, darkgrey 0%, black 100%);
+}
+
+.ulogo1-maintext {
+  margin: -15px 0px -5px 0px;
+}
+
+
+
+.ulogo1-orbit { 			/*electron elipses*/
+  position: absolute;
+  width: 255px;    		/*change if change electron size*/
+  height: 255px;
+  border: solid 8px transparent;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.ulogo1-orbit--visible {   /*electron elipses*/
+  border-radius: 50%;     /*rectangle -> elipses border*/
+  border-color: black;
+}
+
+.ulogo1-electron {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.ulogo1-electron:before {   /*electrons glows*/
+  display: block;
+  content: '';
+  width: 30px;			/*change if change electron size*/
+  height: 30px;
+  margin-left: -15px;
+  margin-top: -15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 125px;
+  left: 125px;
+}
+.ulogo1-electron:after {    /*electrons*/
+  display: block;
+  content: '';
+  width: 20px;			/*then change elipses and glow sizes*/
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 125px;
+  left: 125px;
+  border-color: rgba(255, 255, 255, 0.2); /*???*/
+}
+
+.ulogo1-orbit--top.ulogo1-orbit--visible {
+  -webkit-transform: rotateZ(0deg) rotateY(65deg);
+          transform: rotateZ(0deg) rotateY(65deg);
+}
+
+.ulogo1-orbit--top.ulogo1-orbit--foreground {
+  -webkit-transform: translateZ(100px) rotateZ(0deg) rotateY(65deg);
+          transform: translateZ(100px) rotateZ(0deg) rotateY(65deg);
+}
+
+@-webkit-keyframes rotate-top {
+  0% {
+    -webkit-transform: rotate(0deg) translate(-125px) rotate(0deg);
+            transform: rotate(0deg) translate(-125px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translate(-125px) rotate(-360deg);
+            transform: rotate(360deg) translate(-125px) rotate(-360deg);
+  }
+}
+
+@keyframes rotate-top {
+  0% {
+    -webkit-transform: rotate(0deg) translate(-125px) rotate(0deg);
+            transform: rotate(0deg) translate(-125px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translate(-125px) rotate(-360deg);
+            transform: rotate(360deg) translate(-125px) rotate(-360deg);
+  }
+}
+.ulogo1-orbit--top .ulogo1-electron {   /*electron 1 animation*/
+  -webkit-animation: rotate-top infinite linear;
+          animation: rotate-top infinite linear;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+}
+.ulogo1-orbit--top .ulogo1-electron:before, .ulogo1-orbit--top .ulogo1-electron:after {
+  -webkit-transform: rotateY(-65deg) rotateZ(0deg);
+          transform: rotateY(-65deg) rotateZ(0deg);
+}
+.ulogo1-orbit--top .ulogo1-electron:before {					/*electron 1 glow*/
+  background: -webkit-linear-gradient(top, #fad161 0%, #f99337 100%);
+  background: linear-gradient(-180deg, #fad161 0%, black 100%);
+  opacity: 0.3;
+}
+.ulogo1-orbit--top .ulogo1-electron:after {				/*electron 1 color*/
+  background: -webkit-linear-gradient(top, #fad161 0%, #f99337 100%);
+  background: linear-gradient(-180deg, grey 0%, black 100%);
+}
+
+.ulogo1-orbit--left.ulogo1-orbit--visible {
+  -webkit-transform: rotateZ(-60deg) rotateY(65deg);
+          transform: rotateZ(-60deg) rotateY(65deg);
+}
+
+.ulogo1-orbit--left.ulogo1-orbit--foreground {
+  -webkit-transform: translateZ(00px) rotateZ(-60deg) rotateY(65deg);
+          transform: translateZ(00px) rotateZ(-60deg) rotateY(65deg);
+}
+
+@-webkit-keyframes rotate-left {
+  0% {
+    -webkit-transform: rotate(60deg) translate(-125px) rotate(-60deg);
+            transform: rotate(60deg) translate(-125px) rotate(-60deg);
+  }
+  100% {
+    -webkit-transform: rotate(420deg) translate(-125px) rotate(-420deg);
+            transform: rotate(420deg) translate(-125px) rotate(-420deg);
+  }
+}
+
+@keyframes rotate-left {
+  0% {
+    -webkit-transform: rotate(60deg) translate(-125px) rotate(-60deg);
+            transform: rotate(60deg) translate(-125px) rotate(-60deg);
+  }
+  100% {
+    -webkit-transform: rotate(420deg) translate(-125px) rotate(-420deg);
+            transform: rotate(420deg) translate(-125px) rotate(-420deg);
+  }
+}
+.ulogo1-orbit--left .ulogo1-electron {     /*electron 2 animation*/
+  -webkit-animation: rotate-left infinite linear;
+          animation: rotate-left infinite linear;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+}
+.ulogo1-orbit--left .ulogo1-electron:before, .ulogo1-orbit--left .ulogo1-electron:after {
+  -webkit-transform: rotateY(-65deg) rotateZ(60deg);
+          transform: rotateY(-65deg) rotateZ(60deg);
+}
+.ulogo1-orbit--left .ulogo1-electron:before {			/*electron 2 glow*/
+  background: -webkit-linear-gradient(top, #51ecc2 0%, #12ccdb 100%);
+  background: linear-gradient(-180deg, #51ecc2 0%, black 100%);
+  opacity: 0.3;
+}
+.ulogo1-orbit--left .ulogo1-electron:after {			/*electron 2 color*/
+  background: -webkit-linear-gradient(top, #51ecc2 0%, #12ccdb 100%);
+  background: linear-gradient(-180deg, #51ecc2 0%, black 100%);
+}
+
+.ulogo1-orbit--right.ulogo1-orbit--visible {
+  -webkit-transform: rotateZ(60deg) rotateY(65deg);
+          transform: rotateZ(60deg) rotateY(65deg);
+}
+
+.ulogo1-orbit--right.ulogo1-orbit--foreground {
+  -webkit-transform: translateZ(00px) rotateZ(60deg) rotateY(65deg);
+          transform: translateZ(00px) rotateZ(60deg) rotateY(65deg);
+}
+
+@-webkit-keyframes rotate-right {
+  0% {
+    -webkit-transform: rotate(120deg) translate(-125px) rotate(-120deg);
+            transform: rotate(120deg) translate(-125px) rotate(-120deg);
+  }
+  100% {
+    -webkit-transform: rotate(480deg) translate(-125px) rotate(-480deg);
+            transform: rotate(480deg) translate(-125px) rotate(-480deg);
+  }
+}
+
+@keyframes rotate-right {
+  0% {
+    -webkit-transform: rotate(120deg) translate(-125px) rotate(-120deg);
+            transform: rotate(120deg) translate(-125px) rotate(-120deg);
+  }
+  100% {
+    -webkit-transform: rotate(480deg) translate(-125px) rotate(-480deg);
+            transform: rotate(480deg) translate(-125px) rotate(-480deg);
+  }
+}
+.ulogo1-orbit--right .ulogo1-electron {    /*electron 3 animation*/
+  -webkit-animation: rotate-right infinite linear;
+          animation: rotate-right infinite linear;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+}
+
+.ulogo1-orbit--right .ulogo1-electron:before, .ulogo1-orbit--right .ulogo1-electron:after { /*electron 3 animation*/
+  -webkit-transform: rotateY(-65deg) rotateZ(-60deg);
+          transform: rotateY(-65deg) rotateZ(-60deg);
+}
+.ulogo1-orbit--right .ulogo1-electron:before {			/*electron 3 glow color*/
+  background: -webkit-linear-gradient(top, #0adef3 0%, #45beff 100%);
+  background: linear-gradient(-180deg, #0adef3 0%, black 100%);
+  opacity: 0.3;
+}
+.ulogo1-orbit--right .ulogo1-electron:after {		/*electron 3 colors*/
+  background: -webkit-linear-gradient(top, #0adef3 0%, #45beff 100%);
+  background: linear-gradient(-180deg, #0adef3 0%, black 100%);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+
+}
