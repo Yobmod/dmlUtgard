@@ -8,7 +8,7 @@ if __name__ == "__main__":
 		dotenv.read_dotenv()
 	except:
 		pass
-	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmlUtgard.settings")
+	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmlutgard.settings")
 	try:
 		from django.core.management import execute_from_command_line
 	except ImportError:
