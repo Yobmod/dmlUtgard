@@ -16,8 +16,11 @@ from whitenoise.django import DjangoWhiteNoise
 
 
 
+try:
+	dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+except:
+	pass
 
-dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmlUtgard.settings")
 
