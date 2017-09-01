@@ -1,7 +1,7 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = False
+DEBUG = True
 
 
 INSTALLED_APPS = [
@@ -158,7 +158,7 @@ COMPRESS_JS_FILTERS = [
 # 	MEDIA_URL = "/media/"
 # 	MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
-if DEBUG == False:
+if DEBUG == True:
 	try:
 		from .production_settings import *
 		print(" * using production environment settings")
