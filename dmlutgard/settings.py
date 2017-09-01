@@ -166,7 +166,7 @@ if DEBUG == False:
 		print(" * using local environment settings")
 		pass
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_root")
 
 #WHITENOISE_AUTOREFRESH # =DEBUG
 WHITENOISE_ROOT = STATIC_ROOT
