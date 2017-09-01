@@ -37,8 +37,8 @@ git push origin master
 git pull origin master
 git fetch
 git reset --hard origin/master
-git clone
-git remote add origin git@github.com:"yourusername"/"projectname".git   //after rename repo
+git clone https://username:password@github.com/NAME/repo.git
+git remote add origin git@github.com:NAME/repo.git   //after rename repo
 
 
 heroku run python....    //use python comands (....) on heroku
