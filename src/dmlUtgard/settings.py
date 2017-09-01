@@ -32,6 +32,7 @@ MIDDLEWARE = [
 	'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'dmlUtgard.urls'
@@ -129,12 +130,13 @@ LIBSASS_OUTPUT_STYLE = 'nested' #'compressed'
 LIBSASS_PRECISION = 8  #for bootstrap?
 #background: url(static("myapp/image/bar.png"));
 
+
 COMPRESS_CSS_FILTERS = [
 	'compressor.filters.css_default.CssAbsoluteFilter',
-	'compressor.filters.cssmin.CSSMinFilter'
+	'compressor.filters.cssmin.rCSSMinFilter' #default
 ]
 COMPRESS_JS_FILTERS = [
-	'compressor.filters.jsmin.JSMinFilter',
+	'compressor.filters.jsmin.JSMinFilter', #default
 ]
 
 #------------------------------------------------------
