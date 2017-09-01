@@ -1,1 +1,1 @@
-web: gunicorn dmlUtgard.wsgi
+web: gunicorn src.dmlUtgard.wsgi
