@@ -94,7 +94,7 @@ class DjangoAppPlugin(plugins.SimplePlugin):
 
         # Well this isn't quite as clean as I'd like so
         # feel free to suggest something more appropriate
-        import dmlUtgard.settings
+        import ..dmlUtgard.settings
         app_settings = locals().copy()
         del app_settings['self']
         settings.configure(**app_settings)

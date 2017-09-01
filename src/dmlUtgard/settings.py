@@ -157,7 +157,7 @@ COMPRESS_JS_FILTERS = [
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 # 	MEDIA_URL = "/media/"
 # 	MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
-
+SITE_ID = 1
 if DEBUG == False:
 	try:
 		from .production_settings import *
