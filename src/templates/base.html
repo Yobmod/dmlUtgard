@@ -2,31 +2,39 @@
 <html>
 {% load staticfiles %}
 {% load compress %}
+{% load sekizai_tags %}
 
 <head>
 <meta charset="UTF-8" />
 
 <title>{% block head_title %}{% endblock head_title %}</title>
+
 <link rel="icon" href="{% static 'icons/favicon.ico' %}">
 <!--<link rel='stylesheet' href='{% static "vendor/bootstrap/bootstrap.css" %}' />-->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' >
 
-{% compress css file base %}
+{% addtoblock "css" %}
 <link rel='stylesheet' href='{% static "vendor/sidr/jquery.sidr.light.css" %}' >
 <link rel='stylesheet' href='{% static "css/base.css" %}' />
-<link rel='stylesheet' href='{% static "css/3d_utgard2.css" %}' />
-{% endcompress %}
-
-<script type="text/JavaScript" src='{% static "vendor/jquery/jquery-3.2.1.js" %}'></script>
-<script type="text/JavaScript" src='{% static "vendor/sidr/jquery.sidr.js" %}'></script>
-<script type="text/JavaScript" src='{% static "vendor/js-cookie.js" %}'></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!--<script type="text/JavaScript" src='{% static "vendor/popper.js" %}'></script>
-<script type="text/JavaScript" src='{% static "vendor/bootstrap/bootstrap.js" %}'></script>-->
-
+<link rel='stylesheet' type="text/x-scss" href='{% static "scss/3d_utgard2.scss" %}' />
+{% endaddtoblock %} 
 
 {% block head_extra %} {% endblock head_extra %}
+{% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
+{% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
+
+
+{% compress js file base %}
+<script type="text/javascript" src='{% static "vendor/jquery/jquery-3.2.1.js" %}'></script>
+<script type="text/javascript" src='{% static "vendor/sidr/jquery.sidr.js" %}'></script>
+<script type="text/javascript" src='{% static "vendor/js-cookie.js" %}'></script>
+{% endcompress %}
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--<script type="text/javascript" src='{% static "vendor/popper.js" %}'></script>
+<script type="text/javascript" src='{% static "vendor/bootstrap/bootstrap.js" %}'></script>-->
+
 <style>{% block style %}{% endblock style %}</style>
 </head>
 

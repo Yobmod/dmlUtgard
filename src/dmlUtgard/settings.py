@@ -17,6 +17,7 @@ INSTALLED_APPS = [
 	'rest_framework',
 	'storages',
 	'compressor',
+	'sekizai',
 
 	'main',
 ]
@@ -49,6 +50,7 @@ TEMPLATES = [
 				'django.contrib.messages.context_processors.messages',
 				"django.template.context_processors.i18n",
 				"django.template.context_processors.media",
+				'sekizai.context_processors.sekizai',
 			],
 		},
 	},
@@ -169,5 +171,5 @@ WHITENOISE_ROOT = STATIC_ROOT
 
 COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False
 COMPRESS_URL = STATIC_URL

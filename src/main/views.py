@@ -4,7 +4,7 @@ from django.conf import settings
 #from django.template import loader, Context, Template, RequestContext
 from django.template.loader import render_to_string#, get_template
 from django.views.generic import View
-
+#from sekizai.context import SekizaiContext
 
 def homepage(request):
 	context = {}
@@ -17,7 +17,7 @@ def homepage(request):
 		else:
 			raise ValueError("The template name could not be parsed or is in a subfolder")
 		#print(filename)
-		html_string = render_to_string(template_name, context)
+		html_string = render_to_string(template_name, context, request=request)
 		#print(html_string)
 		filepath = "../templates_cdn/" + filename
 		print(filepath)
