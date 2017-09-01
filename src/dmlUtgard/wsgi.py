@@ -22,7 +22,7 @@ except:
 	pass
 
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmlUtgard.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmlutgard.settings")
 
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application) # , root='/path/to/static/files')
