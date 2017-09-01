@@ -24,20 +24,19 @@ except:
 	pass
 
 
-DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		'NAME': 'dmlutgard',
-		'USER': 'dmlutgard',
-		'PASSWORD': '',
-		'HOST': 'localhost',
-		'PORT': '',
-		'CONN_MAX_AGE': 600,
-	}
-}
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+# 		'NAME': 'dmlutgard',
+# 		'USER': 'dmlutgard',
+# 		'PASSWORD': '',
+# 		'HOST': 'localhost',
+# 		'PORT': '',
+# 		'CONN_MAX_AGE': 600,
+# 	}
+# }
 
-DATABASES['default'] = dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
 DATABASES = {
@@ -46,6 +45,9 @@ DATABASES = {
 		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 	}
 }
+
+DATABASES['default'] = dj_database_url.config()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_ACCESS_KEY_ID = os.environ['AWSAccessKeyId']
