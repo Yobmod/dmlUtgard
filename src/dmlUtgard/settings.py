@@ -35,8 +35,8 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'dmlUtgard.urls'
-WSGI_APPLICATION = 'dmlUtgard.wsgi.application'
+ROOT_URLCONF = 'dmlutgard.urls'
+WSGI_APPLICATION = 'dmlutgard.wsgi.application'
 
 TEMPLATES = [
 	{
