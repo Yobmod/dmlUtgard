@@ -1,1 +1,1 @@
-web: gunicorn src/dmlutgard.wsgi:application --log-file -
+web: gunicorn dmlutgard.wsgi:application --log-file -
