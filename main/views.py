@@ -19,7 +19,7 @@ def homepage(request):
 		#print(filename)
 		html_string = render_to_string(template_name, context, request=request)
 		#print(html_string)
-		filepath = "../templates_cdn/" + filename
+		filepath = "./templates_cdn/" + filename
 		print(filepath)
 		f = open(filepath, 'w+')
 		f.write(html_string)
