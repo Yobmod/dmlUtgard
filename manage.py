@@ -2,11 +2,11 @@
 import os
 import sys
 import dotenv
-from django.conf import settings
+#from django.conf import settings
 
 if __name__ == "__main__":
-	if settings.DEBUG == True:
-		dotenv.read_dotenv()
+	#if settings.DEBUG == True:
+		#dotenv.read_dotenv()
 
 	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmlutgard.settings")
 	try:
