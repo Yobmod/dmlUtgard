@@ -1,9 +1,9 @@
 {% load staticfiles %}
 {% load sekizai_tags %}
 
-{% block head_extra %}
+{% block head_extra %}{% addtoblock "css" %}
 <link rel='stylesheet' type="text/x-scss" href='{% static "scss/3d_utgard2.scss" %}' />
-{% endblock head_extra %}
+{% endaddtoblock %}{% endblock head_extra %}
 
 <div class="ULogo-box">
 		<div class="ULogo">
