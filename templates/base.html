@@ -18,11 +18,6 @@
 <link rel='stylesheet' href='{% static "css/base.css" %}' />
 {% endaddtoblock %}
 
-<link rel='stylesheet' href='{% static "vendor/bootstrap3/bootstrap.min.css" %}' />
-<link rel='stylesheet' href='{% static "vendor/fonts/font-awesome.min.css" %}' />
-<link rel='stylesheet' href='{% static "vendor/sidr/jquery.sidr.light.css" %}' >
-<link rel='stylesheet' href='{% static "css/base.css" %}' />
-
 {% block head_extra %} {% endblock head_extra %}
 {% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
 {% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
