@@ -1,7 +1,7 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = False
+DEBUG = True
 
 
 INSTALLED_APPS = [
@@ -10,7 +10,7 @@ INSTALLED_APPS = [
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
-	#'whitenoise.runserver_nostatic',
+	'whitenoise.runserver_nostatic',
 	'django.contrib.staticfiles',
 
 	'django_extensions',
@@ -158,7 +158,7 @@ COMPRESS_JS_FILTERS = [
 # 	MEDIA_URL = "/media/"
 # 	MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 SITE_ID = 1
-if DEBUG == False:
+if DEBUG == True:
 	try:
 		from .production_settings import *
 		print(" * using production environment settings")
