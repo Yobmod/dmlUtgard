@@ -7,7 +7,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = ['*']
-DEBUG = False
 
 try:
 	SECRET_KEY = os.environ['SECRET_KEY']
@@ -68,7 +67,7 @@ DEFAULT_FILE_STORAGE = 'dmlutgard.storages_custom.MediaStorage'
 
 STATICFILES_LOCATION = 'static'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-STATICFILES_STORAGE = 'dmlutgard.storages_custom.StaticStorage'
+STATICFILES_STORAGE = 'dmlutgard.storages_custom.CachedS3BotoStorage'
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),	]
 
