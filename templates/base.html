@@ -26,11 +26,12 @@
 
 
 {% compress js file base %}
+{% endcompress %}
 <script type="text/javascript" src='{% static "vendor/jquery/jquery-3.2.1.js" %}'></script>
 <script type="text/javascript" src='{% static "vendor/bootstrap3/bootstrap.min.js" %}'></script>-->
 <script type="text/javascript" src='{% static "vendor/sidr/jquery.sidr.js" %}'></script>
 <script type="text/javascript" src='{% static "vendor/js-cookie.js" %}'></script>
-{% endcompress %}
+
 
 
 <style>{% block style %}{% endblock style %}</style>
