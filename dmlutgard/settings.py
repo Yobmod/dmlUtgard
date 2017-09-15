@@ -152,7 +152,7 @@ COMPRESS_JS_FILTERS = [
 #
 # 	STATIC_URL = '/static/'
 # 	STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
-STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, "static"),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 	#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 # 	MEDIA_URL = "/media/"
@@ -166,7 +166,7 @@ if DEBUG == True:
 		print(" * using local environment settings")
 		pass
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
 
 #WHITENOISE_AUTOREFRESH # =DEBUG
 WHITENOISE_ROOT = STATIC_ROOT
