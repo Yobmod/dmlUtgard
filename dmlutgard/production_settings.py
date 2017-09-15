@@ -69,8 +69,8 @@ DEFAULT_FILE_STORAGE = 'dmlutgard.storages_custom.MediaStorage'
 STATICFILES_LOCATION = 'static'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 STATICFILES_STORAGE = 'dmlutgard.storages_custom.StaticStorage'
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),	]
+#STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),	]
 
 #STATICFILES_STORAGE ='dmlutgard.storages_custom.CachedS3BotoStorage'.
 COMPRESS_URL = STATIC_URL
