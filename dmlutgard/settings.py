@@ -16,6 +16,7 @@ INSTALLED_APPS = [
 	'django_extensions',
 	'rest_framework',
 	'storages',
+	#'channels',
 	'compressor',
 	'sekizai',
 

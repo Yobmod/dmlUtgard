@@ -24,10 +24,13 @@ python manage.py createsuperuser
 
 mkvirtualenv <name>
 workon <name>
+wipeenv <name>
 pip install <xxx> 					-U // upgrade    -h // command help
 pip install -r requirements.txt		 -r // use req file order
 pip freeze							//show install packages
 pip freeze > requirements.txt     	// create (overwrite) reqs
+pip freeze -r requirements.txt		//compare installed apps vs reqs
+pip freeze | xargs pip uninstall -y 	//remove all pip installs
 
 
 
@@ -46,3 +49,4 @@ heroku config
 heroku config:set XXX_XXX=abcabc  // no "quote marks"
 heroku config:unset XXX_XXX
 heroku restart
+heroku logs
