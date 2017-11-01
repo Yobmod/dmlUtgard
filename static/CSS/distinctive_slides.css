@@ -233,21 +233,11 @@ div, .reveal div, .slides div, .slide div {
 
 
 @media only screen and (max-width: 900px) {
-	.reveal h1 {
-		font-size: 1.8rem;
+	html, body {
+		font-family: ;
+		font-size: 6px;
+		margin:0;
+		padding:0;
 	}
-	.reveal h2 {
-		font-size: 1.5rem;
-	}
-	.reveal h3 {
-		font-size: 1rem;
-	}
-	.reveal h5 {
-	   font-size: 0.6rem;
-	  }
-	.reveal p {
-	   font-size: 0.5rem;
-	}
-
 
 };
