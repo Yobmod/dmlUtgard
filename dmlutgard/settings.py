@@ -25,7 +25,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
-	'whitenoise.middleware.WhiteNoiseMiddleware',
+	#'whitenoise.middleware.WhiteNoiseMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
@@ -171,7 +171,7 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
 
 SITE_ID = 1
 DEBUG = False
-if DEBUG == True:
+if DEBUG == False:
 	try:
 		from .production_settings import *
 		print(" * using production environment settings")
