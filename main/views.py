@@ -75,6 +75,10 @@ def projects(request):
 	context = {}
 	return render(request, 'main/projects.html', context)
 
+def actinide_water_abs(request):
+	context = {}
+	return render(request, 'distinctive/_slides_base.html', context)
+
 def publications(request):
 	context = {}
 	return render(request, 'main/publications.html', context)

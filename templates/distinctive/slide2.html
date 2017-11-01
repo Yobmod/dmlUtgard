@@ -1,0 +1,149 @@
+{% load staticfiles %}
+<section class="slide" id="slide2">
+	<section id="slide2a" data-menu-title="slide 2">
+
+		<div class="wrapper2x2">
+			<header style="">This is a title of slide 2</header>
+
+			<div class="one2x2"><h1>Slide 1</h1>
+				<p>Some text with a footnote.<sup><a href="#slideRefs" id="ref1">1</a></sup></p>
+				<br />
+				<p>Some more text with a footnote.<sup><a href="#slideRefs" id="ref2">2</a></sup></p>
+			</div>
+
+			<div class="two2x2"><p>This is a slide, wooooThis is a slide, wooooThis is a slide, wooooThis is a slide, wooooThis is a slide, wooooThis is a slide, wooooThis is a slide, wooooThis is a slide, wooooThis is a slide, wooooThis is a slide, woooo</p></div>
+
+			<div class="three2x2">
+				<p class="eqn b">\[
+					  1 +  \frac{q^2}{(1-q)} + \frac{q^6}{(1-q)(1-q^2)} =
+					    \frac{1}{(1-q^{5j+2})(1-q^{5j+3})},
+					     \quad\quad \text{for $|q|<1$}.
+					\]
+          		</p>
+			</div>
+
+			<div class="four2x2" ><p class="b">This is a slide, woooo</p>
+				<div class="">
+					<div class="">
+						<canvas id="NestedChart" data-chart="doughnut" height="100%"></canvas>
+					</div>
+				</div>
+			</div>
+
+			<footer style="">
+			<p><sup id="fn1">1. [Text of footnote 1]<a href="#ref1" title="Jump back to footnote 1">↩</a></sup>
+				<sup id="fn2">2. [Text of footnote 2]<a href="#ref2" title="Jump back to footnote 2">↩</a></sup><p>
+			</footer>
+	  	</div>
+
+
+	  	<aside class="notes">
+		  <p> Notes for slide 1a</p>
+	  	</aside>
+	</section>
+
+  	<section id="slide2b" data-menu-title="slide 2b">
+
+		<div class="wrapper3x3" style="">
+			<div class="one3x3"><h1>gfreg</h1></div>
+			<div class="five3x3"><h1>gerg</h1></div>
+			<div class="nine3x3"><h3>ge</h3></div>
+		</div>
+		<footer style="visibility:hidden; ">This is a footer of slide 2b</footer>
+	</section>
+
+
+
+		<script defer>
+
+		FillPatterns = [
+	            pattern.draw('square', 'blue'),
+	            pattern.draw('circle', 'red'),
+	            pattern.draw('diamond', 'green'),
+	            pattern.draw('triangle', 'yellow'),
+				pattern.draw('dot', 'pink')
+	        ]
+	Chart.defaults.global.animation.duration = 2040
+	const ctx1 = document.getElementById("NestedChart").getContext("2d");
+
+	Reveal.addEventListener( 'slidechanged', function( event ) {
+			try {var prevslide = event.previousSlide.id}
+			catch(err){var prevslide = null}
+
+			var currslide = event.currentSlide.id
+			// Reveal.getPreviousSlide();
+			// Reveal.getCurrentSlide();
+			var myChart1 = new Chart(ctx1, {
+				type: 'doughnut',
+				data: {
+				labels: ['blue', 'red', 'green', 'yellow', 'pink'],	//labels chart (legends for pie / radial)
+				datasets: [{
+					//label: '# of Votes',		//nothing?
+					data: [22,69,44,14,33],
+					backgroundColor: ['blue', 'red', 'green', 'yellow', 'pink'],
+					hoverBackgroundColor: ['darkblue', 'darkred', 'darkgreen', 'orange', 'magenta'],
+					//borderWidth: 2,
+					//datasetStroke: 2,
+				},
+				{
+					//label: '# of Votes',		//nothing?
+					data: [10,89,4,34,33],
+					backgroundColor: FillPatterns,
+					hoverBackgroundColor: ['darkblue', 'darkred', 'darkgreen', 'orange', 'magenta'],
+				//	borderWidth: 2,
+				},
+				{
+					//label: '# of Votes',		//nothing?
+					data: [101,2,14,44,60],
+					backgroundColor: ['blue', 'red', 'green', 'yellow', 'pink'],
+					hoverBackgroundColor: ['darkblue', 'darkred', 'darkgreen', 'orange', 'magenta'],
+					//borderWidth: 2,
+						}
+					]
+			},
+			options: {
+				cutoutPercentage: 0,
+				//segmentStrokeColor: 'rgba(2,56,56,1)',
+				//segmentStrokeWidth: 10,
+				segmentShowStroke: false,
+				//aspectRatio: 1, // default 2:1
+				legend: {
+					labels: {
+						usePointStyle: true,
+						//boxWidth: 40, //default 40, not compatible with use pointstyle
+						//boxHeight: 20, //not implmemented yet in 2.7.1
+					},
+				},
+				animation: {
+					easing: "linear",
+					duration: 1040,  //min 17 ms per step, 60 steps = 1020ms
+					animateScale: true,
+					animateRotate: true,
+				},
+				responsive:true,
+				maintainAspectRatio: true
+			}
+			});
+
+			if(prevslide < currslide || prevslide == null){
+				var direction = "forward"
+													}
+			else{
+				var direction = "backward"
+			 //myChart1.destroy();
+			  //myChart1.update();
+			  //myChart1.reset();
+			  //myChart1.clear();
+			  myChart1.stop();  //doesn't animate
+			  //myChart1.update();
+			  //myChart1.render()
+
+		  	}
+			//console.log(prevslide)
+			//console.log(currslide)
+			console.log(direction);
+		  })
+
+		</script>
+
+</section>
