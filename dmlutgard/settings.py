@@ -168,7 +168,17 @@ COMPRESS_URL = STATIC_URL
 
 
 SITE_ID = 1
-DEBUG = True
+
+try:
+	LOCAL = os.environ['LOCAL']
+except:
+	pass
+
+if LOCAL == 'yes':
+	DEBUG = True
+else:
+	DEBUG = False
+
 
 if DEBUG == False:
 	try:
