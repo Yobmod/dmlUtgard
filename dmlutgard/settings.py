@@ -10,15 +10,15 @@ INSTALLED_APPS = [
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
-	'whitenoise.runserver_nostatic',
+	#'whitenoise.runserver_nostatic',
 	'django.contrib.staticfiles',
 
 	'django_extensions',
 	'rest_framework',
 	'storages',
 	#'channels',
-	'compressor',
-	'sekizai',
+	#'compressor',
+	#'sekizai',
 
 	'main',
 ]
@@ -142,8 +142,6 @@ COMPRESS_JS_FILTERS = [
 
 #------------------------------------------------------
 # if DEBUG == True:
-# 	ALLOWED_HOSTS = ['*']
-# 	SECRET_KEY = 'bzd-%ny!#y0u*(h#(+gann@b^5%'
 # 	DATABASES = {
 # 	'default': {
 # 		'ENGINE': 'django.db.backends.sqlite3',
@@ -151,14 +149,28 @@ COMPRESS_JS_FILTERS = [
 # 	}
 # }
 #
-# 	STATIC_URL = '/static/'
-# 	STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
-	#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 # 	MEDIA_URL = "/media/"
 # 	MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+
+
+
+ALLOWED_HOSTS = ['*']
+
+try:
+	SECRET_KEY = os.environ['SECRET_KEY']
+except:
+	pass
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
+
+
+
 SITE_ID = 1
+DEBUG = False
 if DEBUG == True:
 	try:
 		from .production_settings import *
@@ -167,12 +179,9 @@ if DEBUG == True:
 		print(" * using local environment settings")
 		pass
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
-
+#COMPRESS_ROOT = STATIC_ROOT
+#COMPRESS_ENABLED = True
+#COMPRESS_OFFLINE = False
+#COMPRESS_URL = STATIC_URL
 #WHITENOISE_AUTOREFRESH # =DEBUG
-WHITENOISE_ROOT = STATIC_ROOT
-
-COMPRESS_ROOT = STATIC_ROOT
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = False
-COMPRESS_URL = STATIC_URL
+#WHITENOISE_ROOT = STATIC_ROOT
