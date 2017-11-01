@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load compress %}
 
-<link rel='stylesheet' href='{% static "css/3d_atom.css" %}' />
-<link rel='stylesheet' href='{% static "css/3d_atom2.css" %}' />
-<link rel='stylesheet' href='{% static "css/3d_utgard1.css" %}' />
-
+{% block head_extra %}{% compress css file atoms %}
+<link rel='stylesheet' href='{% static "CSS/3d_atom.css" %}' />
+<link rel='stylesheet' href='{% static "CSS/3d_atom2.css" %}' />
+<link rel='stylesheet' href='{% static "CSS/3d_utgard1.css" %}' />
+{% endcompress %}{% endblock head_extra %}
 
 {% block style %}{% endblock style %}
 

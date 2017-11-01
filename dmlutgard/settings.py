@@ -1,8 +1,6 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-DEBUG = True
-
 
 INSTALLED_APPS = [
 	'django.contrib.admin',
@@ -17,7 +15,7 @@ INSTALLED_APPS = [
 	'rest_framework',
 	'storages',
 	#'channels',
-	#'compressor',
+	'compressor',
 	#'sekizai',
 
 	'main',
@@ -151,9 +149,9 @@ COMPRESS_JS_FILTERS = [
 #
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-# 	MEDIA_URL = "/media/"
-# 	MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
 
 
@@ -167,10 +165,9 @@ except:
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
 
-
-
 SITE_ID = 1
-DEBUG = False
+DEBUG = True
+
 if DEBUG == False:
 	try:
 		from .production_settings import *
@@ -179,9 +176,9 @@ if DEBUG == False:
 		print(" * using local environment settings")
 		pass
 
-#COMPRESS_ROOT = STATIC_ROOT
-#COMPRESS_ENABLED = True
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_ENABLED = True
 #COMPRESS_OFFLINE = False
-#COMPRESS_URL = STATIC_URL
+COMPRESS_URL = STATIC_URL
 #WHITENOISE_AUTOREFRESH # =DEBUG
 #WHITENOISE_ROOT = STATIC_ROOT
