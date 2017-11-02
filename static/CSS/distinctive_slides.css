@@ -1,7 +1,5 @@
 
 html, body {
-	font-family: ;
-	font-size: 16px;
 	margin:0;
 	padding:0;
 }
@@ -9,10 +7,16 @@ html, body {
 .reveal header, .reveal footer {
 	color: white;
 	background-color: steelblue;
-	/*padding:0.05rem;*/
-	/*clear: left;*/
+}
+
+.reveal header {
 	text-align: center;
-	/*width: 100%;*/
+	font-size: 2.5rem;
+}
+
+.reveal footer {
+	text-align: left;
+	padding-left: 10rem;
 }
 
 .reveal .slides .slide ul {
@@ -52,10 +56,25 @@ div, .reveal div, .slides div, .slide div {
 
 .wrapper1-1-1-1-1 {
   display: grid;
-  grid-template-columns: 10% 10% repeat(1, 1fr) 10% 10%;
-  grid-template-rows: 50rem 50rem 50rem repeat(3, 20rem)
-  grid-gap: 5px;
+  position: absolute;
+  top: 0;
+  grid-template-columns: 0.15fr 0.15fr repeat(1, 1fr) 0.15fr 0.15fr;
+  grid-template-rows: 2.5rem repeat(3, 14.0rem) repeat(3, 5.2rem) 2.5rem;
+  grid-gap: 0.1rem;
+}
 
+.wrapper1-1-1-1-1 header {
+	grid-column: 1 / 6;
+    grid-row: 1;
+	line-height: 2.5rem; /*vertical centres*/
+}
+
+.wrapper1-1-1-1-1 footer {
+	grid-column: 1 / 6;
+    grid-row: 8;
+	line-height: 2.5rem; /*vertical centres*/
+	background-color: white;
+	border-top: 5px solid steelblue;
 }
 
 .wrapper1-1-1 {
@@ -70,9 +89,9 @@ div, .reveal div, .slides div, .slide div {
   position: absolute;
   top: 0;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2px;
+  grid-gap: 0.1rem;
   /*grid-auto-rows: minmax(20rem, auto); */
-  grid-template-rows: 2.5rem 20rem 20rem 20rem 2.5rem;
+  grid-template-rows: 2.5rem repeat(3, minmax(19.23rem, auto)) 2.5rem;
 }
 
 .wrapper3x3 header {
@@ -140,10 +159,10 @@ div, .reveal div, .slides div, .slide div {
   position: absolute;
   top: 0;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2px;
+  grid-gap: 0.1rem;
   /*grid-auto-rows: minmax(25rem, auto);*/
-  grid-template-rows: 2.5rem 30rem 30rem 2.5rem;
-
+  grid-template-rows: 2.5rem repeat(2, minmax(28.85rem, auto)) 2.5rem;
+/*63 rem show slides without footer and footer in fullscreen*/
 }
 
 .wrapper2x2 header {
@@ -231,13 +250,23 @@ div, .reveal div, .slides div, .slide div {
 
 
 
-
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1280px) and (min-width: 959px) {
 	html, body {
-		font-family: ;
-		font-size: 6px;
-		margin:0;
-		padding:0;
-	}
+		font-size: 0.66rem;
 
-};
+	}
+}
+
+@media only screen and (max-width: 960px) and (min-width: 640px) {
+	html, body {
+		font-size: 0.5rem;
+
+	}
+}
+
+@media only screen and (max-width: 639px) and (min-width: 1px) {
+	html, body {
+		font-size: 0.33rem;
+
+	}
+}

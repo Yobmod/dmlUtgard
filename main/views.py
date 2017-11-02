@@ -71,6 +71,9 @@ def facilities(request):
 	context = {}
 	return render(request, 'main/facilities.html', context)
 
+from django.views.decorators.clickjacking import xframe_options_exempt
+
+@xframe_options_exempt
 def projects(request):
 	context = {}
 	return render(request, 'main/projects.html', context)
