@@ -11,14 +11,13 @@
 
 {% compress css file reveal %}
 <link rel="stylesheet" media="screen" href='{% static "vendor/revealjs/reveal.css" %}'/>
-<link rel="stylesheet" media="screen" href='{% static "vendor/revealjs/theme/simple.css" %}' id="theme" />
 <link rel="stylesheet" media="screen" href='{% static "CSS/distinctive_slides.css" %}'/>
 {% endcompress %}
 
-<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js'></script>
 {% compress js file reveal %}
 <script type="text/javascript" src='{% static "vendor/revealjs/head.min.js" %}'></script>
 <script type="text/javascript" src='{% static "vendor/revealjs/reveal.js" %}'></script>
+<script type="text/javascript" src='{% static "vendor/chartjs/chart.min.js" %}'></script>
 <script type="text/javascript" src="{% static 'vendor/chartjs/patternomaly.js' %}"></script>
 {% endcompress %}
 </head>
