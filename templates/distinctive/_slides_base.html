@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load compress %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +9,18 @@
 
   <title>Distinctive Presentation</title>
 
-<link rel="stylesheet" media="screen" href='{% static "vendor/revealjs/reveal.css" %}'>
-<link rel="stylesheet" media="screen" href='{% static "vendor/revealjs/theme/simple.css" %}' id="theme">
-<link rel="stylesheet" media="screen" href='{% static "CSS/distinctive_slides.css" %}'>   <!-- Style theme. More available in /themes/style/ or create your own. -->
+{% compress css file reveal %}
+<link rel="stylesheet" media="screen" href='{% static "vendor/revealjs/reveal.css" %}'/>
+<link rel="stylesheet" media="screen" href='{% static "vendor/revealjs/theme/simple.css" %}' id="theme" />
+<link rel="stylesheet" media="screen" href='{% static "CSS/distinctive_slides.css" %}'/>
+{% endcompress %}
 
-<!--
-<script defer src='{% static "vendor/jquery/jquery-3.2.1.min.js" %}'> </script>
-<script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
-<script src='{% static "vendor/revealjs/head.min.js" %}'></script>
-<script src='{% static "vendor/revealjs/reveal.js" %}'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js'></script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js'></script>
+{% compress js file reveal %}
+<script type="text/javascript" src='{% static "vendor/revealjs/head.min.js" %}'></script>
+<script type="text/javascript" src='{% static "vendor/revealjs/reveal.js" %}'></script>
 <script type="text/javascript" src="{% static 'vendor/chartjs/patternomaly.js' %}"></script>
-
+{% endcompress %}
 </head>
 
 <body>
