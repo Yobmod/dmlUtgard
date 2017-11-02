@@ -13,7 +13,7 @@ var RevealMenu = window.RevealMenu || (function(){
 	var module = {};
 
 	loadResource(options.path + 'menu.css', 'stylesheet', function() {
-	loadResource(options.path + '/font-awesome-4.3.0/css/font-awesome.min.css', 'stylesheet', function() {
+	loadResource(options.path + 'font-awesome-4.3.0/css/font-awesome.min.css', 'stylesheet', function() {
 		// does not support IE8 or below
 		if (!head.browser.ie || head.browser.version >= 9) {
 			//
@@ -289,7 +289,7 @@ var RevealMenu = window.RevealMenu || (function(){
 
 				    // identify active theme
 				    selectAll('div[data-panel="Themes"] li').forEach(function(i) { i.classList.remove('active') });
-				    select('li[data-theme="' + select('#theme').getAttribute('href') + '"]').classList.add('active');
+				    //select('li[data-theme="' + select('#theme').getAttribute('href') + '"]').classList.add('active');
 
 				    // identify active transition
 				    selectAll('div[data-panel="Transitions"] li').forEach(function(i) { i.classList.remove('active') });
