@@ -140,12 +140,8 @@ COMPRESS_JS_FILTERS = [
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
-
-STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
-COMPRESS_URL = STATIC_URL
 
 SITE_ID = 1
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
@@ -164,6 +160,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 if LOCAL == 'yes':
 	DEBUG = True
 	print(" * using local environment settings")
+	MEDIA_URL = "/media/"
+	STATIC_URL = '/static/'
 	DATABASES = {
 		'default': {
 			'ENGINE': 'django.db.backends.sqlite3',
@@ -177,7 +175,7 @@ else:
 	except ImportError:
 		print(" * production environment settings not found")
 
-
+COMPRESS_URL = STATIC_URL
 COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_ENABLED = True
 # COMPRESS_OFFLINE = False

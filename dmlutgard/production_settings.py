@@ -48,11 +48,5 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 STATICFILES_STORAGE = 'dmlutgard.storages_custom.StaticStorage'
 STATIC_ROOT = STATICFILES_STORAGE
 
-# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),	]
-
 # STATICFILES_STORAGE ='dmlutgard.storages_custom.CachedS3BotoStorage'.
-COMPRESS_URL = STATIC_URL
 COMPRESS_STORAGE = STATICFILES_STORAGE
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
