@@ -136,14 +136,7 @@ COMPRESS_JS_FILTERS = [
 ]
 
 # ------------------------------------------------------
-# if DEBUG == True:
-# 	DATABASES = {
-# 	'default': {
-# 		'ENGINE': 'django.db.backends.sqlite3',
-# 		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-# 	}
-# }
-#
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
@@ -167,13 +160,20 @@ except UserWarning:
 
 if LOCAL == 'yes':
 	DEBUG = True
+	print(" * using local environment settings")
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3',
+			'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		}
+	}
 else:
 	try:
 		from .production_settings import *
 		print(" * using production environment settings")
 	except ImportError:
-		print(" * using local environment settings")
-		pass
+		print(" * production environment settings not found")
+
 
 COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_ENABLED = True
