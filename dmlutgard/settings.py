@@ -8,22 +8,22 @@ INSTALLED_APPS = [
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
-	#'whitenoise.runserver_nostatic',
+	# 'whitenoise.runserver_nostatic',
 	'django.contrib.staticfiles',
 
 	'django_extensions',
 	'rest_framework',
 	'storages',
-	#'channels',
+	# 'channels',
 	'compressor',
-	#'sekizai',
+	# 'sekizai',
 
 	'main',
 ]
 
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
-	#'whitenoise.middleware.WhiteNoiseMiddleware',
+	# 'whitenoise.middleware.WhiteNoiseMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
@@ -57,11 +57,11 @@ TEMPLATES = [
 
 CACHES = {
 	'default': {
-		#'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+		# 'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
 		'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-		#'django.core.cache.backends.memcached.MemcachedCache',
-		#'django.core.cache.backends.memcached.PyLibMCCache',
-		#'LOCATION': '/var/tmp/django_cache',
+		# 'django.core.cache.backends.memcached.MemcachedCache',
+		# 'django.core.cache.backends.memcached.PyLibMCCache',
+		# 'LOCATION': '/var/tmp/django_cache',
 	}
 }
 # Password validation
@@ -88,18 +88,16 @@ REST_FRAMEWORK = {
 		'rest_framework.renderers.JSONRenderer',
 		'rest_framework.renderers.BrowsableAPIRenderer',
 	),
-	#'DEFAULT_PARSER_CLASSES': (
-		#'rest_framework.parsers.JSONParser',
-	#),
+	# 'DEFAULT_PARSER_CLASSES': ('rest_framework.parsers.JSONParser', ),
 	'DEFAULT_AUTHENTICATION_CLASSES': (
-		#'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+		# 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
 		'rest_framework.authentication.SessionAuthentication',
-		#'rest_framework.authentication.BasicAuthentication',
+		# 'rest_framework.authentication.BasicAuthentication',
 	),
 	'DEFAULT_PERMISSION_CLASSES': (
-		 'rest_framework.permissions.AllowAny', #all views will be this unless has permission class added
-		 #'rest_framework.permissions.IsAuthenticated',
-		 #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+		'rest_framework.permissions.AllowAny',  # all views will be this unless has permission class added
+		# 'rest_framework.permissions.IsAuthenticated',
+		# 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
 	)
 }
 
@@ -116,28 +114,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATICFILES_FINDERS = (
-	 'django.contrib.staticfiles.finders.FileSystemFinder',
-	 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-	 'compressor.finders.CompressorFinder',
-	 )
+	'django.contrib.staticfiles.finders.FileSystemFinder',
+	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+	'compressor.finders.CompressorFinder',
+)
 
 COMPRESS_PRECOMPILERS = (
 	('text/x-scss', 'django_libsass.SassCompiler'),
 )
-LIBSASS_OUTPUT_STYLE = 'nested' #'compressed'
-LIBSASS_PRECISION = 8  #for bootstrap?
-#background: url(static("myapp/image/bar.png"));
+LIBSASS_OUTPUT_STYLE = 'nested'  # 'compressed'
+LIBSASS_PRECISION = 8  # for bootstrap?
+# background: url(static("myapp/image/bar.png"));
 
 
 COMPRESS_CSS_FILTERS = [
 	'compressor.filters.css_default.CssAbsoluteFilter',
-	'compressor.filters.cssmin.rCSSMinFilter' #default
+	'compressor.filters.cssmin.rCSSMinFilter'  # default
 ]
 COMPRESS_JS_FILTERS = [
-	'compressor.filters.jsmin.JSMinFilter', #default
+	'compressor.filters.jsmin.JSMinFilter',  # default
 ]
 
-#------------------------------------------------------
+# ------------------------------------------------------
 # if DEBUG == True:
 # 	DATABASES = {
 # 	'default': {
@@ -146,40 +144,30 @@ COMPRESS_JS_FILTERS = [
 # 	}
 # }
 #
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
-
-
-
-ALLOWED_HOSTS = ['*']
-
-try:
-	SECRET_KEY = os.environ['SECRET_KEY']
-except:
-	pass
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
 COMPRESS_URL = STATIC_URL
 
-
 SITE_ID = 1
+
+
+ALLOWED_HOSTS = ['*']
 
 try:
 	LOCAL = os.environ['LOCAL']
-except:
+	SECRET_KEY = os.environ['SECRET_KEY']
+except UserWarning:
 	pass
 
 if LOCAL == 'yes':
 	DEBUG = True
 else:
-	DEBUG = False
-
-
-if DEBUG == False:
 	try:
 		from .production_settings import *
 		print(" * using production environment settings")
@@ -189,6 +177,6 @@ if DEBUG == False:
 
 COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_ENABLED = True
-#COMPRESS_OFFLINE = False
-#WHITENOISE_AUTOREFRESH # =DEBUG
-#WHITENOISE_ROOT = STATIC_ROOT
+# COMPRESS_OFFLINE = False
+# WHITENOISE_AUTOREFRESH # =DEBUG
+# WHITENOISE_ROOT = STATIC_ROOT
