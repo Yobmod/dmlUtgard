@@ -152,11 +152,9 @@ SITE_ID = 1
 
 ALLOWED_HOSTS = ['*']
 
-try:
-	LOCAL = os.environ['LOCAL']
-	SECRET_KEY = os.environ['SECRET_KEY']
-except UserWarning:
-	pass
+LOCAL = os.environ['LOCAL']
+SECRET_KEY = os.environ['SECRET_KEY']
+
 
 if LOCAL == 'yes':
 	DEBUG = True
