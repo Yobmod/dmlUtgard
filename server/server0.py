@@ -13,12 +13,8 @@ Finally, since the CherryPy WSGI server doesn't offer a log
 facility, we add a straightforward WSGI middleware to do so, based
 on the CherryPy built-in logger. Obviously any other log middleware
 can be used instead.
-
-Note this application admin site uses the following credentials:
-admin/admin
-
-Thanks to Damien Tougas for his help on this recipe.
 """
+
 if __name__ == '__main__':
     import cherrypy
     cherrypy.config.update({'server.socket_port': 8090, 'checker.on': False})
