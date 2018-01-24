@@ -148,10 +148,7 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
 COMPRESS_URL = STATIC_URL
 
 SITE_ID = 1
-
-
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 LOCAL = os.environ['LOCAL']
 SECRET_KEY = os.environ['SECRET_KEY']
 
