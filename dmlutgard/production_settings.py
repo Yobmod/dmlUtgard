@@ -8,7 +8,7 @@ ALLOWED_HOSTS = ['*']
 
 try:
 	SECRET_KEY = os.environ['SECRET_KEY']
-except UserWarning:
+except:
 	pass
 
 try:
@@ -18,7 +18,7 @@ try:
 	EMAIL_PORT = 587
 	EMAIL_USE_TLS = True
 	DEFAULT_FROM_EMAIL = ""  # use in view if different from host
-except UserWarning:
+except:
 	pass
 
 
