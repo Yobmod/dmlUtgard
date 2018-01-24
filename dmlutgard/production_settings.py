@@ -7,11 +7,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = ['*']
 
 try:
-	SECRET_KEY = os.environ['SECRET_KEY']
-except:
-	pass
-
-try:
 	EMAIL_HOST = 'smtp.gmail.com'
 	EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 	EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
