@@ -5,7 +5,11 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ALLOWED_HOSTS = ['*']
-SECRET_KEY = os.environ['SECRET_KEY']
+
+try:
+	SECRET_KEY = os.environ['SECRET_KEY']
+except UserWarning:
+	pass
 
 try:
 	EMAIL_HOST = 'smtp.gmail.com'
