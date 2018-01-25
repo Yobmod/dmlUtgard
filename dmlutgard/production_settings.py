@@ -2,8 +2,7 @@ import os
 import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-ALLOWED_HOSTS = ['dmlutgard.herokuapp.com']
+ALLOWED_HOSTS = ["dmlutgard.herokuapp.com"]
 
 # DATABASES = {
 # 	'default': {
@@ -16,7 +15,6 @@ ALLOWED_HOSTS = ['dmlutgard.herokuapp.com']
 # 		'CONN_MAX_AGE': 600,
 # 	}
 # }
-
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.sqlite3',
