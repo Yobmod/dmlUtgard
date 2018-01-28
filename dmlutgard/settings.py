@@ -1,4 +1,6 @@
 import os
+import dotenv
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
@@ -145,6 +147,11 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "dmlutgard", "static_cdn")
 
 SITE_ID = 1
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+
+try:
+	dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+except UserWarning:
+	pass
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']

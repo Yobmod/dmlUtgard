@@ -9,16 +9,17 @@ admin.autodiscover()
 
 urlpatterns = [
 
-    url(r'^admin/', admin.site.urls),
+	url(r'^admin/', admin.site.urls),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-	url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
-	url(r'^favicon.ico$', RedirectView.as_view(url=staticfiles_storage.url('icons/favicon.ico'), permanent=False), name="favicon"),
+	# url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
+	url(r'^favicon.ico$', RedirectView.as_view(
+		url=staticfiles_storage.url('icons/favicon.ico'), permanent=False), name="favicon"),
 
-    url(r'^', include("main.urls", namespace='main')),
-	#url(r'^api/', include("main.api.urls", namespace='main-api')),
+	url(r'^', include("main.urls", namespace='main')),
+	# url(r'^api/', include("main.api.urls", namespace='main-api')),
 
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
