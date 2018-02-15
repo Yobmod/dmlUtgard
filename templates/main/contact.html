@@ -3,8 +3,9 @@
 {% block head_extra %}
 <style>
    #map {
-	height: 400px;
-	width: 100%;
+	height: 500px;
+	width: 75%;
+	position: relative;
    }
 </style>{% endblock head_extra %}
 {% block style %}{% endblock style %}
@@ -19,6 +20,73 @@
 
 	</div>
 </div><!--end row1-->
+
+<br />
+
+<h3>My Google Maps Demo</h3>
+<div id="map"></div>
+<br />
+
+<script>
+  function initMap() {
+
+	var lancaster_uni = {lat: 54.0084603, lng: -2.7865918}
+	var lancaster = {lat: 54.0441576, lng: -2.8361623}
+	var lancaster_golf = {lat: 54.026064, lng: -2.82212}
+
+	var map = new google.maps.Map(document.getElementById('map'), {
+	  zoom: 12,
+	  center: lancaster
+  })
+
+	var directionsService = new google.maps.DirectionsService()
+
+	var directionsDisplay = new google.maps.DirectionsRenderer({
+  		map: map
+	})
+
+	var marker1 = new google.maps.Marker({
+	  position: lancaster_golf,
+	  map: map,
+	  title: "unlikely!",			// hover text
+	  label: "a good place",  // puts text on map
+	})
+
+	// var marker2 = new google.maps.Marker({
+  	//   position: lancaster_uni,
+  	//   map: map
+	// });
+	// var marker3 = new google.maps.Marker({
+	//   position: lancaster,
+	//   map: map
+	// });
+
+displayRoute(directionsService, directionsDisplay, lancaster, lancaster_uni);
+  }
+
+  function displayRoute(directionsService, directionsDisplay, lancaster, lancaster_uni) {
+
+    var request = {
+        origin : lancaster,
+        destination : lancaster_uni,
+        travelMode : google.maps.TravelMode.WALKING
+    };
+
+
+    directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+        }
+		else {
+      window.alert('Directions request failed due to ' + status);
+  		}
+    });
+	}
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key={{map_api_key}}&callback=initMap">
+</script>
 
 <br />
 
@@ -46,104 +114,6 @@
   </div>
 </div><!--end row2-->
 
-<br />
-
-<h3>My Google Maps Demo</h3>
-<div id="map"></div>
-<script>
-  function initMap() {
-	var uluru = {lat: -25.363, lng: 131.044};
-	var map = new google.maps.Map(document.getElementById('map'), {
-	  zoom: 4,
-	  center: uluru
-	});
-	var marker = new google.maps.Marker({
-	  position: uluru,
-	  map: map
-	});
-  }
-</script>
-
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key={{map_api_key}}&callback=initMap">
-</script>
-
-<div class="row"><!--row3--><!--row3 col1-->
-  	<div class="col-lg-4">
-		<h4>Subheading</h4>
-		<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-		<h4>Subheading</h4>
-		<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-		<h4>Subheading</h4>
-		<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-	</div>
-
-  <div class="col-lg-4"><!--row3 col2-->
-	<h4>Subheading</h4>
-	<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-	<h4>Subheading</h4>
-	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-	<h4>Subheading</h4>
-	<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-  </div>
-
-	<div class="col-lg-4"><!--row3 col3-->
-  	<h4>Subheading</h4>
-  	<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-  	<h4>Subheading</h4>
-  	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-  	<h4>Subheading</h4>
-  	<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-  </div>
- </div>
-</div><!--end row3-->
-
-<br />
-
-<div class="row"><!--row3-->
-  	<div class="col-lg-2"><!--row4 col1-->
-		<h4>Subheading</h4>
-		<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-		<h4>Subheading</h4>
-		<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-		<h4>Subheading</h4>
-		<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-	</div>
-
-  <div class="col-lg-8"><!--row4 col2-->
-	<h4>Subheading</h4>
-	<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-	Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-	<h4>Subheading</h4>
-	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
-	Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-	<h4>Subheading</h4>
-	<p>Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna.
-	Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-  </div>
-
-	<div class="col-lg-2"><!--row4 col3-->
-  	<h4>Subheading</h4>
-  	<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-  	<h4>Subheading</h4>
-  	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-  	<h4>Subheading</h4>
-  	<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-  </div>
- </div>
-</div><!--end row4-->
 
 <script>
 $( function() {
