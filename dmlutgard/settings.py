@@ -160,6 +160,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = ""  # use in view if different from host
 
+GOOGLEMAP_KEY = os.environ['GOOGLEMAP_KEY']
+
 LOCAL = os.environ['LOCAL']
 SECRET_KEY = os.environ['SECRET_KEY']
 

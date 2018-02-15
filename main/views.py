@@ -1,19 +1,22 @@
-from django.shortcuts import render#, get_object_or_404, redirect
+from django.shortcuts import render  # , get_object_or_404, redirect
 from django.conf import settings
-#from django.http import HttpResponse, HttpResponseRedirect
-#from django.template import loader, Context, Template, RequestContext
+from django.http import HttpResponse, HttpRequest
+# from django.template import loader, Context, Template, RequestContext
 from django.template.loader import render_to_string#, get_template
 from django.views.generic import View
-#from sekizai.context import SekizaiContext
+# from sekizai.context import SekizaiContext
+from django.views.decorators.clickjacking import xframe_options_exempt
+from typing import Dict, Any
 
-def homepage(request):
-	context = {}
+
+def homepage(request: HttpRequest) -> HttpResponse:
+	context: Dict[str, Any] = {}
 	template_name = "main/homepage.html"
-	if settings.DEBUG == True:
+	if settings.DEBUG is True:
 		if "/" in template_name and template_name.endswith('.html'):
-			filename = template_name[(template_name.find("/")+1):len(template_name)-len(".html")] + "_flat.html"
+			filename = template_name[(template_name.find("/") + 1):len(template_name) - len(".html")] + "_flat.html"
 		elif template_name.endswith('.html'):
-			filename = template_name[:len(template_name)-len(".html")] + "_flat.html"
+			filename = template_name[:len(template_name) - len(".html")] + "_flat.html"
 		else:
 			raise ValueError("The template name could not be parsed or is in a subfolder")
 		#print(filename)
@@ -26,15 +29,16 @@ def homepage(request):
 		f.close()
 	return render(request, template_name, context)
 
+
 def flatten(request):
 	template_names = ["main/homepage.html", 'main/facilities.html']
-	context = {}
-	if settings.DEBUG == True:
+	context: Dict[str, Any] = {}
+	if settings.DEBUG is True:
 		for template_name in template_names:
 			if "/" in template_name and template_name.endswith('.html'):
-				filename = template_name[(template_name.find("/")+1):len(template_name)-len(".html")] + "_flat.html"
+				filename = template_name[(template_name.find("/") + 1):len(template_name) - len(".html")] + "_flat.html"
 			elif template_name.endswith('.html'):
-				filename = template_name[:len(template_name)-len(".html")] + "_flat.html"
+				filename = template_name[:len(template_name) - len(".html")] + "_flat.html"
 			else:
 				raise ValueError("The template name could not be parsed or is in a subfolder")
 			#print(filename)
@@ -46,7 +50,6 @@ def flatten(request):
 			f.write(html_string)
 			f.close()
 			return render(request, template_name, context)
-
 
 
 def render_to_file(template_name, context):
@@ -68,27 +71,30 @@ def render_to_file(template_name, context):
 # 	return text
 
 def facilities(request):
-	context = {}
+	context: Dict[str, Any] = {}
 	return render(request, 'main/facilities.html', context)
 
-from django.views.decorators.clickjacking import xframe_options_exempt
 
 @xframe_options_exempt
 def projects(request):
-	context = {}
+	context: Dict[str, Any] = {}
 	return render(request, 'main/projects.html', context)
 
+
 def actinide_water_abs(request):
-	context = {}
+	context: Dict[str, Any] = {}
 	return render(request, 'distinctive/_slides_base.html', context)
 
+
 def publications(request):
-	context = {}
+	context: Dict[str, Any] = {}
 	return render(request, 'main/publications.html', context)
 
+
 def atoms(request):
-	context = {}
+	context: Dict[str, Any] = {}
 	return render(request, 'animated_atoms.html', context)
+
 
 def contact(request):
 	# form = ContactForm(request.POST or None)
@@ -103,7 +109,8 @@ def contact(request):
 	# 	contact_message = "%s: %s via %s"%(form_name, form_message, form_email)
 	# 	send_mail(subject, contact_message, from_email, to_email, fail_silently=False)
 	#context = {'form':form,}
-	context = {}
+	map_api_key = settings.GOOGLEMAP_KEY
+	context: Dict[str, Any] = {'map_api_key': map_api_key}
 	return render(request, 'main/contact.html', context)
 
 

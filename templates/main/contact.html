@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block head_extra %}{% endblock head_extra %}
+{% block head_extra %}
+<style>
+   #map {
+	height: 400px;
+	width: 100%;
+   }
+</style>{% endblock head_extra %}
 {% block style %}{% endblock style %}
 
 
@@ -41,6 +47,26 @@
 </div><!--end row2-->
 
 <br />
+
+<h3>My Google Maps Demo</h3>
+<div id="map"></div>
+<script>
+  function initMap() {
+	var uluru = {lat: -25.363, lng: 131.044};
+	var map = new google.maps.Map(document.getElementById('map'), {
+	  zoom: 4,
+	  center: uluru
+	});
+	var marker = new google.maps.Marker({
+	  position: uluru,
+	  map: map
+	});
+  }
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key={{map_api_key}}&callback=initMap">
+</script>
 
 <div class="row"><!--row3--><!--row3 col1-->
   	<div class="col-lg-4">
