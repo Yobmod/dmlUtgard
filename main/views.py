@@ -6,7 +6,10 @@ from django.template.loader import render_to_string#, get_template
 from django.views.generic import View
 # from sekizai.context import SekizaiContext
 from django.views.decorators.clickjacking import xframe_options_exempt
-from typing import Dict, Any
+from typing import Dict, Any, Optional
+
+
+Opt = Optional
 
 
 def homepage(request: HttpRequest) -> HttpResponse:
@@ -30,7 +33,7 @@ def homepage(request: HttpRequest) -> HttpResponse:
 	return render(request, template_name, context)
 
 
-def flatten(request):
+def flatten(request: HttpRequest) -> HttpResponse:
 	template_names = ["main/homepage.html", 'main/facilities.html']
 	context: Dict[str, Any] = {}
 	if settings.DEBUG is True:
@@ -49,11 +52,13 @@ def flatten(request):
 			f = open(filepath, 'w+')
 			f.write(html_string)
 			f.close()
-			return render(request, template_name, context)
+		return render(request, template_name, context)
+	else:
+		raise KeyError("Debug mode not set")
 
 
-def render_to_file(template_name, context):
-	html_string = render_to_string(template_name, context)
+#def render_to_file(template_name, context):
+	#html_string = render_to_string(template_name, context)
 	#filename = template_name[:-5] + "_flat.html"
 	#filename = template_name.replace('.html','_flat.html')
 	#filename = template_name[:len(template_name)-len(".html")] + "_flat.html"
@@ -70,33 +75,33 @@ def render_to_file(template_name, context):
 # 	text = stripTags(html).lower()
 # 	return text
 
-def facilities(request):
+def facilities(request: HttpRequest) -> HttpResponse:
 	context: Dict[str, Any] = {}
 	return render(request, 'main/facilities.html', context)
 
 
 @xframe_options_exempt
-def projects(request):
+def projects(request: HttpRequest) -> HttpResponse:
 	context: Dict[str, Any] = {}
 	return render(request, 'main/projects.html', context)
 
 
-def actinide_water_abs(request):
+def actinide_water_abs(request: HttpRequest) -> HttpResponse:
 	context: Dict[str, Any] = {}
 	return render(request, 'distinctive/_slides_base.html', context)
 
 
-def publications(request):
+def publications(request: HttpRequest) -> HttpResponse:
 	context: Dict[str, Any] = {}
 	return render(request, 'main/publications.html', context)
 
 
-def atoms(request):
+def atoms(request: HttpRequest) -> HttpResponse:
 	context: Dict[str, Any] = {}
 	return render(request, 'animated_atoms.html', context)
 
 
-def contact(request):
+def contact(request: HttpRequest) -> HttpResponse:
 	# form = ContactForm(request.POST or None)
 	# if form.is_valid():
 	# 	form_name = form.cleaned_data.get('name')
