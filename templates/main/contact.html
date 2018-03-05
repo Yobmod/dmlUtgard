@@ -51,11 +51,22 @@
   		map: map
 	})
 
+	var contentString =
+		'<div id="MI">'+
+		'<div id="MIbody">'+
+		'<p><b>Some</b> place in lancaster</p>'+
+		'<p> between two other places.</p>'+
+		'<a href="http://news.lancs.ac.uk/web/news/pages/7f38b310f06e92db80257663006e0bdd.aspx"><img src="http://news.lancs.ac.uk/Web/News/publishingimages/Imported/C34.jpg" alt="Photo of a place" height="250" width="250" /></a>'+
+		'    '+
+		'<a href="https://www.englandgolf.org/golfcentral/clubImages/E10000408/Lancaster-3.jpg"><img src="https://www.englandgolf.org/golfcentral/clubImages/E10000408/Lancaster-3.jpg" alt="Another photo" height="250" width="250" /></a>'+
+		'</div>'+
+		'</div>';
+
 	var marker1 = new google.maps.Marker({
 	  position: lancaster_golf,
 	  map: map,
 	  title: "unlikely!",			// hover text
-	  label: "a good place",  // puts text on map
+	  label: "A Good Place",  // puts text on map
 	})
 
 	// var marker2 = new google.maps.Marker({
@@ -66,14 +77,7 @@
 	//   position: lancaster,
 	//   map: map
 	// });
-	var contentString =
-		'<div id="MI">'+
-		'<div id="MIbody">'+
-		'<p><b>Some</b> place in lancaster</p>'+
-		'<p> between two other places.</p>'+
-		'<a href="http://news.lancs.ac.uk/web/news/pages/7f38b310f06e92db80257663006e0bdd.aspx"><img src="http://news.lancs.ac.uk/Web/News/publishingimages/Imported/C34.jpg" alt="Photo of a place" height="250" width="250" /></a>'+
-		'</div>'+
-		'</div>';
+
 
 	  var infowindow = new google.maps.InfoWindow({
 	    content: contentString
@@ -81,6 +85,8 @@
 
 	  marker1.addListener('click', function() {
   		infowindow.open(map, marker1);
+		// add toggle to remove infowindow on repeat click
+		// put up gallery underneath that stays until replaced
 	})
 
 displayRoute(directionsService, directionsDisplay, lancaster, lancaster_uni);

@@ -2,7 +2,7 @@ from django.shortcuts import render  # , get_object_or_404, redirect
 from django.conf import settings
 from django.http import HttpResponse, HttpRequest
 # from django.template import loader, Context, Template, RequestContext
-from django.template.loader import render_to_string#, get_template
+from django.template.loader import render_to_string  # , get_template
 from django.views.generic import View
 # from sekizai.context import SekizaiContext
 from django.views.decorators.clickjacking import xframe_options_exempt
@@ -22,9 +22,9 @@ def homepage(request: HttpRequest) -> HttpResponse:
 			filename = template_name[:len(template_name) - len(".html")] + "_flat.html"
 		else:
 			raise ValueError("The template name could not be parsed or is in a subfolder")
-		#print(filename)
+		# print(filename)
 		html_string = render_to_string(template_name, context, request=request)
-		#print(html_string)
+		# print(html_string)
 		filepath = "./templates_cdn/" + filename
 		print(filepath)
 		f = open(filepath, 'w+')
@@ -44,11 +44,11 @@ def flatten(request: HttpRequest) -> HttpResponse:
 				filename = template_name[:len(template_name) - len(".html")] + "_flat.html"
 			else:
 				raise ValueError("The template name could not be parsed or is in a subfolder")
-			#print(filename)
+			# print(filename)
 			html_string = render_to_string(template_name, context)
-			#print(html_string)
+			# print(html_string)
 			filepath = "../templates_cdn/" + filename
-			#print(filepath)
+			# print(filepath)
 			f = open(filepath, 'w+')
 			f.write(html_string)
 			f.close()
@@ -57,15 +57,15 @@ def flatten(request: HttpRequest) -> HttpResponse:
 		raise KeyError("Debug mode not set")
 
 
-#def render_to_file(template_name, context):
-	#html_string = render_to_string(template_name, context)
-	#filename = template_name[:-5] + "_flat.html"
-	#filename = template_name.replace('.html','_flat.html')
-	#filename = template_name[:len(template_name)-len(".html")] + "_flat.html"
-	#filename = template_name[:template_name.rfind(".")] + "_flat.html"
-	#f = open(filename, 'w+')
-	#f.write(html_string)
-	#f.close()
+# def render_to_file(template_name, context):
+	# html_string = render_to_string(template_name, context)
+	# filename = template_name[:-5] + "_flat.html"
+	# filename = template_name.replace('.html','_flat.html')
+	# filename = template_name[:len(template_name)-len(".html")] + "_flat.html"
+	# filename = template_name[:template_name.rfind(".")] + "_flat.html"
+	# f = open(filename, 'w+')
+	# f.write(html_string)
+	# f.close()
 
 
 # def webPageToText(url):
@@ -113,7 +113,7 @@ def contact(request: HttpRequest) -> HttpResponse:
 	# 	to_email = [from_email, 'other@email.com']
 	# 	contact_message = "%s: %s via %s"%(form_name, form_message, form_email)
 	# 	send_mail(subject, contact_message, from_email, to_email, fail_silently=False)
-	#context = {'form':form,}
+	# context = {'form':form,}
 	map_api_key = settings.GOOGLEMAP_KEY
 	context: Dict[str, Any] = {'map_api_key': map_api_key}
 	return render(request, 'main/contact.html', context)

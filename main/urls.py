@@ -12,13 +12,11 @@ urlpatterns = [
 	url(r'^publications/$', views.publications, name='publications'),
 	url(r'^contact/$', views.contact, name='contact'),
 	url(r'^atoms/$', views.atoms, name='atoms'),
-	#url(r'^admin/$', views.django_admin_page, name='django_admin_page'), #link to admin
+	# url(r'^admin/$', views.django_admin_page, name='django_admin_page'), #link to admin
 	url(r'^flatten/$', views.flatten, name='flatten'),
 
+	url(r'^projects/actinide_water_abs/$', views.actinide_water_abs, name='actinide_water_abs'), ]
 
-	url(r'^projects/actinide_water_abs/$', views.actinide_water_abs, name='actinide_water_abs'),
-
-				]
 if settings.DEBUG:
 	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
