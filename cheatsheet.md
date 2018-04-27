@@ -52,6 +52,6 @@ heroku config:unset XXX_XXX
 heroku restart
 heroku logs
 
-heroku create --ssh-git   //add ssh
-heroku keys:add
+heroku create --ssh-git     //creates a git?
+heroku keys:add         //add ssh
 git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
