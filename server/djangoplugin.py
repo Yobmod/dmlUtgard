@@ -18,7 +18,7 @@ __all__ = ['DjangoAppPlugin']
 
 class DjangoAppPlugin(plugins.SimplePlugin):
     """."""
-    
+
     def __init__(self, bus, settings_module='settings', wsgi_http_logger=HTTPLogger):
         """CherryPy engine plugin to configure and mount
         the Django application onto the CherryPy server.

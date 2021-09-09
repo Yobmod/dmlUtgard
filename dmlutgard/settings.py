@@ -25,7 +25,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
-	# 'whitenoise.middleware.WhiteNoiseMiddleware',
+	'whitenoise.middleware.WhiteNoiseMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
@@ -51,7 +51,7 @@ TEMPLATES = [
 				'django.contrib.messages.context_processors.messages',
 				"django.template.context_processors.i18n",
 				"django.template.context_processors.media",
-				'sekizai.context_processors.sekizai',
+				# 'sekizai.context_processors.sekizai',
 			],
 		},
 	},
